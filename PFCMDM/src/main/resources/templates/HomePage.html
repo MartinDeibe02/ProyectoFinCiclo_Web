@@ -9,7 +9,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" th:href="@{/css/homepage.css}">
+<link rel="stylesheet" th:href="@{/css/home/homepage.css}">
+<link rel="stylesheet" th:href="@{/css/home/featured.css}">
+<link rel="stylesheet" th:href="@{/css/home/large_gender.css}">
 
 </head>
 <body>
@@ -20,12 +22,12 @@
             <h1>NBA STORE</h1>
             <button>Explore</button>
         </div>
-        <img class="hero-img" src="/img/hero.png" alt="">
+        <img class="hero-img" src="/img/home_img/hero.png" alt="">
 
 
 
         <nav class="navbar navbar-expand-lg navbar-light prueba">
-            <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img" th:src="@{/img/logo.png}"></a>
+            <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
                 aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="" role="button"><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
@@ -39,7 +41,7 @@
                     <li class="nav-item">
                         <a class="nav-link nav-buttons" href="#">Products</a>
                     </li>
-                    <a class="d-none d-lg-block " href="#"><img class="logo-img" th:src="@{/img/logo.png}"></a>
+                    <a class="d-none d-lg-block " href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
                     <li class="nav-item">
                         <a class="nav-link nav-buttons" href="#">Cart</a>
                     </li>
@@ -49,7 +51,52 @@
                 </ul>
             </div>
         </nav>
+       </div>
+        
+            <div class="featured-title">
+        <h2 class="text-center">FEATURED</h2>
+        <div class=" cards row d-flex justify-content-around">
 
+            <div class="card">
+                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p>2000$</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p>2000$</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p>2000$</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p>2000$</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="divimg mt-3">
+        <img class="large" src="/img/home_img/large.png" alt="">
     </div>
 
 
