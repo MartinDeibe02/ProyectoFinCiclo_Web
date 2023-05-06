@@ -1,0 +1,145 @@
+body{
+    min-width: 400px;
+    overflow-x: hidden;
+  
+  }
+  
+  .logo-img{
+    width: 50%;
+  }
+  
+  .nav-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .nav-link {
+    color: white !important;
+    font-weight: 400;
+    font-size: 20px;
+  }
+  
+  .nav-buttons {
+    position: relative;
+  }
+  
+  .nav-buttons:hover {
+    color: white;
+  }
+  
+  .nav-buttons::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .nav-buttons:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .container-fluid {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+  }
+  
+  .container-fluid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    background-size: cover;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .nba-store {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+  }
+  
+  .nba-store h1 {
+    font-family: "NewYork", Courier, monospace;
+    font-weight: 100;
+    color: white;
+    font-size: 7vw;
+  }
+  
+  .nba-store button {
+    width: 50%;
+    height: 5%;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    align-self: center;
+    transition: 0.3s;
+  
+  }
+  
+  .nba-store button {
+      font-weight: 50;
+      font-size: 1vw;
+  }
+  
+  .nba-store button:hover{
+      background-color: white;
+      color: black;
+      font-weight: 500;
+  }
+  
+  
+  
+  
+  
+  @media only screen and (max-width: 999px) {
+      .navbar-collapse{
+          text-align: center;
+          min-width: 200px;
+          width: 100%;
+      }
+  
+      .logo-img{
+        width: 30%;
+      }
+  
+      .nav-link{
+        font-weight: 100;
+  
+      }
+  
+      .nba-store button{
+        height: 5vw;
+        width: 100%;
+        font-size: 2.5vw;
+      }
+    }
+    
