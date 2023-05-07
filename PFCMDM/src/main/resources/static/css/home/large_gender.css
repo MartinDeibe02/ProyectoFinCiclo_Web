@@ -7,3 +7,95 @@
     filter: brightness(0.5);
 
   }
+
+
+  .left-side {
+    background-image: url("/img/home_img/men.png");
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-position: center center;
+    font-family: "NewYork", Courier, monospace;
+  
+  }
+  
+  .right-side {
+    background-image: url("/img/home_img/women.png");
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    font-family: "NewYork", Courier, monospace;
+    background-position: center center;
+  
+  }
+  
+  .left-side::before,
+  .right-side::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.7;
+    
+  }
+  
+  .right-side:hover,
+  .left-side:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: multiply;
+  
+  }
+  
+  .split-pane {
+    padding-top: 1em;
+    background-size: cover;
+    min-height: 15em;
+    font-size: 2em;
+    color: white;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+  
+  .split-pane > div {
+    position: relative;
+    text-align: center;
+  }
+  
+  .split-pane > div .text-content .big {
+    font-size: 2em;
+  }
+
+
+  .newsLetter{
+    padding: 5%;
+  }
+
+
+  .newsLetter button {
+    width: 10%;
+    height: 5%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: transparent;
+    color: black;
+    align-self: center;
+    transition: 0.3s;
+  
+  }
+
+  .newsLetter button {
+    font-weight: 50;
+    font-size: 1vw;
+}
+
+.newsLetter button:hover{
+    background-color: black;
+    color: white;
+    font-weight: 500;
+}
