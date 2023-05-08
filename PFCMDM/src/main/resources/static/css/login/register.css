@@ -11,16 +11,13 @@
 
 .log-title{
 	    font-family: "NewYork", Courier, monospace;
-	
 }
 
 .login_pane{
     width: 50%;
     background-color: white;
-    height: 60%;
     border-radius: 20px;
     box-shadow: 5px 5px 5px black;
-
 }
 
 form{
@@ -28,7 +25,7 @@ form{
 }
 
 .img-form{
-    background-image: url("/img/log_reg/login_form.png");
+    background-image: url("/img/log_reg/register_form.png");
     background-size: cover;
     border-radius: 20px 0px 0px 20px;
 }
