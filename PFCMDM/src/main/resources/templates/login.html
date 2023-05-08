@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/login/login.css}">
+</head>
+
+<body>
+
+    <div class="login_back d-flex justify-content-center align-items-center">
+        <div class="row login_pane">
+            <div class="col-md d-flex flex-column justify-content-center align-items-center">
+                <h2 class="log-title">Log In</h2>
+                <form action="">
+                    <label for="username">Username</label>
+                    <input class="form-text" type="text" name="" id="">
+                    <label for="password">Password</label>
+                    <input class="form-text" type="password" name="" id="">
+                    <button class="log-button" type="submit">Log In</button>
+                </form>
+                <a class="align-self-start register" href="">Not registered?</a>
+            </div>
+            <div class="col-md img-form">
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
