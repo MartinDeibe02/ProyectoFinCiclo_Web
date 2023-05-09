@@ -129,41 +129,8 @@
         <button>Explore</button>
     </div>
 
-    <footer>
-        <div class="row">
-            <hr class="col">
-            <div class="col d-flex flex-row justify-content-around">
-
-
-                <div class="text-center">
-                    <img th:src="@{/img/icons/facebook.svg}" alt="" class="img-fluid">
-                </div>
-                <div class="text-center">
-                    <img th:src="@{/img/icons/instagram.svg}" alt="" class="img-fluid">
-                </div>
-                <div class="text-center">
-                    <img th:src="@{/img/icons/youtube.svg}" alt="" class="img-fluid">
-                </div>
-            </div>
-            <hr class="col">
-        </div>
-        <div class="row footer_2">
-            <div class="col text-center">
-                <ul>
-                    <li class="footer_link"><a href="#">Brands</a></li>
-                    <li class="footer_link"><a href="#">Products</a></li>
-                </ul>
-            </div>
-            <div class="col text-center">
-                <img class="logo-footer" th:src="@{/img/home_img/logo.png}">
-            </div>
-            <div class="col text-center">
-                <ul>
-                    <li class="footer_link"><a href="#">Cart</a></li>
-                    <li class="footer_link"><a href="#">Profile</a></li>
-                </ul>
-            </div>
-        </div>
+    <footer th:insert="/fragment/footer">
+       
     </footer>
 
 

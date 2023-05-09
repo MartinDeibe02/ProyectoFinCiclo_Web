@@ -58,20 +58,34 @@
 
     <div>
         <div class="row mt-5 mb-5">
-            <div class="col-lg-4 col-md-6 mb-4  d-flex justify-content-center" th:each="i : ${#numbers.sequence(0,11)}">
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center" th:each="i : ${#numbers.sequence(0,8)}">
                 <div class="card">
-                    <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p>2000$</p>
-    
+                    
+
+                    <div class="row no-gutters">
+                        <div class="col-sm-7">
+                            <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p>2000$</p>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
+
+            
+
         </div>
     </div>
     
     
+        <footer th:insert="/fragment/footer">    </footer>
+        
+        <script th:src="@{/js/home.js}"></script>
     
     </body>
     </html>
