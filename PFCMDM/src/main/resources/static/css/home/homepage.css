@@ -17,7 +17,7 @@ body{
   .nav-link {
     color: white !important;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 30px;
   }
   
   .nav-buttons {
@@ -43,14 +43,14 @@ body{
     transform: scaleX(1);
   }
   
-  .container-fluid {
+  .head-hero {
     display: flex;
     justify-content: center;
     position: relative;
     padding: 0;
   }
   
-  .container-fluid::before {
+  .head-hero::before {
     content: "";
     position: absolute;
     top: 0;
