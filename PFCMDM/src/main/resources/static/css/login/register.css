@@ -60,16 +60,15 @@ form{
 .register:hover{
     color: black;
         text-decoration:  none;
-    
+}
+
+#date{
+    width: 100%;
 }
 
 @media (max-width: 767px) {
     .img-form {
       order: -1;
-    }
-    
-    .login_pane{
-    	height: 80%;
     }
     
     .img-form{
