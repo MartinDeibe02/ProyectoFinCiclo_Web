@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo_bar">
+            <img th:src="@{/img/home_img/logo.png}" class="logo" alt="">
+            <i class="fas fa-bars" id="btn"></i>
+        </div>
+        <ul class="lista">
+
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span class="link">User</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-box"></i>
+                    <span class="link">Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-shirt"></i>
+                    <span class="link">Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-brands fa-product-hunt"></i>
+                    <span class="link">Pedidos</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <section class="content row">
+        <div class="col p-5">
+            <div class="card bg-gradient-green card-dash text-white">
+                <div class="card-body d-flex align-items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-user fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title">Users</h5>
+                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col p-5">
+            <div class="card bg-gradient-pink card-dash text-white">
+                <div class="card-body d-flex align-items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-user fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title">Products</h5>
+                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col p-5">
+            <div class="card bg-gradient-blue card-dash text-white">
+                <div class="card-body d-flex align-items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-user fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title">Categories</h5>
+                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col p-5">
+            <div class="card bg-gradient-orange card-dash text-white">
+                <div class="card-body d-flex align-items-center">
+                    <div class="mr-4">
+                        <i class="fas fa-user fa-3x"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title">Brands</h5>
+                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            const sidebar = document.querySelector(".sidebar");
+            const closeBtn = document.querySelector("#btn");
+
+            closeBtn.addEventListener("click", function () {
+                sidebar.classList.toggle("open")
+                menuBtnChange()
+            })
+
+        }
+    </script>
+</body>
+
+</html>

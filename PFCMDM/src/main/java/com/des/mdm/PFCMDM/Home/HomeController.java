@@ -32,4 +32,10 @@ public class HomeController {
 		return "/detail";
 	
 }
+	
+	@GetMapping("/admin")
+	public String admin() {
+		return "/adminPane";
+	
+}
 	}
