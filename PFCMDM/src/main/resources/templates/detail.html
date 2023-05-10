@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
+    <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+    <link rel="stylesheet" th:href="@{/css/products/detail.css}">
+
+</head>
+
+<body>
+
+    <div class="container-fluid head-hero">
+
+        <div class="nba-store">
+            <h1>Woman</h1>
+        </div>
+        <img class="hero-img" src="/img/home_img/hero.png" alt="">
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light prueba">
+            <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img"
+                    th:src="@{/img/home_img/logo.png}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
+                aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="" role="button"><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbarToggler7">
+                <ul class="navbar-nav mx-auto nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link nav-buttons" href="#">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-buttons" href="#">Products</a>
+                    </li>
+                    <a class="d-none d-lg-block " href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
+                    <li class="nav-item">
+                        <a class="nav-link nav-buttons" href="#">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-buttons" href="#">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 d-flex">
+                <div class="product-image align-self-center">
+                    <img class="imgdetail " th:src="@{/img/home_img/lv_nba.webp}" alt="Product Image">
+                </div>
+            </div>
+            <div class="col-xl-6 align-self-center">
+                <div class="product-info">
+                    <h1 class="product-name">Luxury Product Name</h1>
+                    <h2 class="product-price">$999.99</h2>
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo aliquet tortor, at tincidunt mi commodo nec. Donec vel efficitur lacus.</p>
+                    <button class="btn btn-primary btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment-section">
+        <h2>Comments</h2>
+        <form>
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name">
+          <label for="comment">Comentario:</label>
+          <textarea id="comment" name="comment"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+        <div class="comments mt-5">
+          <div class="comment">
+            <h3>Username</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
+          </div>
+          
+          
+        </div>
+      </div>
+      
+
+
+    <footer th:insert="/fragment/footer"></footer>
+
+    <script th:src="@{/js/home.js}"></script>
+
+</body>
+
+</html>

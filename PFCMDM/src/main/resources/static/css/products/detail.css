@@ -1,0 +1,124 @@
+
+.imgdetail{
+	width: 100%;
+}
+
+.product-image{
+	padding: 50px;
+}
+.product-info {
+    margin: auto;
+    text-align: center;
+}
+.product-name {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+.product-price {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 40px;
+}
+.product-description {
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+.btn-buy {
+    margin-top: 40px;
+    font-size: 24px;
+    padding: 20px 50px;
+    border-radius: 0;
+    border: none;
+    background-color: black;
+    transition: all 0.2s ease-in-out;
+}
+.btn-buy:hover {
+    background-color: white;
+    transform: scale(1.1);
+    cursor: pointer;
+    border: 1px black solid;
+    color: black;
+    border-radius: 5px;
+}
+.product-info {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.comment-section {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  form input, form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .comments {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .comment p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+
+
+

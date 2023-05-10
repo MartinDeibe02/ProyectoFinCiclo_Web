@@ -26,4 +26,10 @@ public class HomeController {
 		return "/products/products_Men";
 	
 }
+	
+	@GetMapping("/detail")
+	public String detail() {
+		return "/detail";
+	
+}
 	}
