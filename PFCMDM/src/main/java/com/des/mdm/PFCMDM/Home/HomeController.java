@@ -18,7 +18,7 @@ public class HomeController {
 	
 	@GetMapping("/reg")
 	public String register() {
-		return "register";
+		return "cart";
 	}
 
 	@GetMapping("/men")

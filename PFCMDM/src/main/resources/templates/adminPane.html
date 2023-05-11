@@ -10,6 +10,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
 
 </head>
 
@@ -87,7 +88,7 @@
 		</div>
 		
 		<div class="col d-flex justify-content-around">
-			<button type="button" class="btn btn-success crud">New</button>
+			<button type="button" class="btn btn-success crud" data-bs-toggle="modal" >New</button>
 			<button type="button" class="btn btn-warning crud">Edit</button>
 			<button type="button" class="btn btn-danger crud">Delete</button>
 		</div>
