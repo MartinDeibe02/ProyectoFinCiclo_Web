@@ -7,7 +7,9 @@
 
 body{
   height: 100vh;
+    background-color: #252323;
 }
+
 
 .sidebar{
   min-height: 100vh;
@@ -178,6 +180,49 @@ body{
 
 .bg-gradient-orange {
     background: linear-gradient(to right, #a86008, #ffba56);
+}
+
+.crud{
+	width: 50%
+}
+
+.texto-negro{
+	color: black;
+}
+
+.buton-search{
+	background-color: white;
+	border-radius: 20px;
+	width: 30px;
+	border: none;
+}
+
+.buton-search:hover{
+		background-color: gray;
+}
+
+.crud{
+	width: 100px;
+}
+
+input{
+	height: 100%;
+}
 
 
+
+
+table {
+	text-align: center;
+	
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+td{
+	margin-top:10px;
 }
