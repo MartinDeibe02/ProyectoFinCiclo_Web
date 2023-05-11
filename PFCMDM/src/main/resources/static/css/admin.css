@@ -195,6 +195,12 @@ body{
 	border-radius: 20px;
 	width: 30px;
 	border: none;
+	height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
 }
 
 .buton-search:hover{
@@ -207,6 +213,24 @@ body{
 
 input{
 	height: 100%;
+	width: 100%;
+	margin-right: 50px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	border-radius: 10px;
+	color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+form{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	
 }
 
 
