@@ -11,9 +11,9 @@ public class HomeController {
 		return "homepage";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/log")
 	public String login() {
-		return "login";
+		return "brands";
 	}
 	
 	@GetMapping("/reg")

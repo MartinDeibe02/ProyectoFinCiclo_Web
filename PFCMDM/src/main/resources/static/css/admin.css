@@ -1,4 +1,6 @@
-
+body{
+	overflow-x: hidden; 
+}
 
 
 
@@ -55,7 +57,7 @@
 }
 
 .crud{
-	width: 100px;
+	width: 150px;
 }
 
 input{
@@ -74,7 +76,6 @@ input:focus {
 }
 
 form{
-	height: 100%;
 	width: 100%;
 	position: relative;
 	
