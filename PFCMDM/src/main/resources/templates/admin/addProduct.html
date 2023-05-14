@@ -18,7 +18,7 @@
     <div class="sidebar" th:insert="/fragment/sidebar"></div>
 
     <div class="content p-5">
-    
+
         <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
         <form class="formprod p-5">
             <div class="form-row">
@@ -29,16 +29,16 @@
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Gender</label>
                     <select name="gender" class="custom-select form-control">
-					    <option value="volvo">Man</option>
-					    <option value="fiat">Woman</option>
-					  </select>
+                        <option value="volvo">Man</option>
+                        <option value="fiat">Woman</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Description</label>
-                <textarea  type="text" class="form-control" id="description" placeholder="Description"> </textarea>
+                <textarea type="text" class="form-control" id="description" placeholder="Description"> </textarea>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Price</label>
@@ -46,35 +46,83 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Brand</label>
-                      <select name="brand" class="custom-select form-control">
-					    <option value="volvo">Volvo</option>
-					    <option value="fiat">Fiat</option>
-					    <option value="audi">Audi</option>
-					  </select>
+                    <select name="brand" class="custom-select form-control">
+                        <option value="volvo">Volvo</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                    </select>
                 </div>
-                
+
             </div>
             <div class="form-group">
                 <div class="mb-3">
-				  <label for="formFile">Image</label>
-				<input type="file" class="form-control-file form-control"  id="archivo" accept=".png">
-            </div>
-            <button type="submit" class="btn btn-primary">Add Product</button>
+                    <label for="formFile">Image</label>
+                    <input type="file" class="form-control-file form-control" id="archivo" accept=".png">
+                </div>
+                <button type="submit" class="btn btn-primary submit">Add Product</button>
         </form>
     </div>
+    
+    <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Brand</h2>
+    
+
+    <form class="formprod mt-5 p-5">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Name</label>
+                <input type="email" class="form-control" id="name" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Gender</label>
+                <select name="gender" class="custom-select form-control">
+                    <option value="volvo">Man</option>
+                    <option value="fiat">Woman</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Description</label>
+            <textarea type="text" class="form-control" id="description" placeholder="Description"> </textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="$$">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputState">Brand</label>
+                <select name="brand" class="custom-select form-control">
+                    <option value="volvo">Volvo</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="formFile">Image</label>
+                <input type="file" class="form-control-file form-control" id="archivo" accept=".png">
+            </div>
+            <button type="submit" class="btn btn-primary submit">Add Product</button>
+    </form>
+
+
+
 
 
 
     <script th:src="@{/js/sidebar.js}"></script>
-    	<script>
-		document.getElementById("archivo").addEventListener("change", function() {
-			var archivo = this.files[0];
-			if (!archivo || archivo.type.indexOf("image/png") === -1) {
-				alert("File must be *.png");
-				this.value = "";
-			}
-		});
-	</script>
+    <script>
+        document.getElementById("archivo").addEventListener("change", function () {
+            var archivo = this.files[0];
+            if (!archivo || archivo.type.indexOf("image/png") === -1) {
+                alert("File must be *.png");
+                this.value = "";
+            }
+        });
+    </script>
 
 </body>
 

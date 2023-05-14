@@ -37,3 +37,17 @@ select option:checked {
 select:hover option {
   background-color: white;
 }
+
+.submit{
+	border: 1px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.submit:hover{
+	border: 1px solid white;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}

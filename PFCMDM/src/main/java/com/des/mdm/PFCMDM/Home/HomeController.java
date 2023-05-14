@@ -29,13 +29,13 @@ public class HomeController {
 	
 	@GetMapping("/detail")
 	public String detail() {
-		return "/detail";
+		return "/products/detail";
 	
 }
 	
 	@GetMapping("/admin")
 	public String admin() {
-		return "/adminPane";
+		return "/admin/adminPane";
 	
 }
 	
