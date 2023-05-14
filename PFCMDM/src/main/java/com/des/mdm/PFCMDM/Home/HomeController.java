@@ -38,4 +38,10 @@ public class HomeController {
 		return "/adminPane";
 	
 }
+	
+	@GetMapping("/add")
+	public String add() {
+		return "/admin/addProduct";
+	
+}
 	}

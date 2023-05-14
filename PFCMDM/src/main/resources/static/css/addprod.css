@@ -1,0 +1,39 @@
+.formprod{
+	box-shadow: 0 0 10px 5px gray;
+}
+
+label{
+	color: white;
+}
+
+.form-control{
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+	color:white;
+}
+
+.form-control::placeholder {
+  color: d0d0d0;
+}
+
+.form-control:focus {
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+	color:white;
+	}
+	
+select option {
+  background-color: white;
+  color: black;
+}
+
+select option:checked {
+  background-color: black;
+  color: white;
+}
+
+select:hover option {
+  background-color: white;
+}
