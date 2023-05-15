@@ -24,24 +24,29 @@ public class HomeController {
 	@GetMapping("/men")
 	public String products_men() {
 		return "/products/products_Men";
-	
 }
 	
 	@GetMapping("/detail")
 	public String detail() {
 		return "/products/detail";
-	
 }
 	
-	@GetMapping("/admin")
-	public String admin() {
-		return "/admin/adminPane";
+	@GetMapping("/admin/users")
+	public String adminUsers() {
+		return "/admin/adminPaneUsers";
+}
 	
+	@GetMapping("/admin/products")
+	public String adminProducts() {
+		return "/admin/adminPaneUsers";
+}
+	@GetMapping("/admin/brands")
+	public String adminBrands() {
+		return "/admin/adminPaneBrands";
 }
 	
 	@GetMapping("/add")
 	public String add() {
 		return "/admin/addProduct";
-	
 }
 	}
