@@ -49,4 +49,5 @@ public class HomeController {
 	public String add() {
 		return "/admin/addProduct";
 }
+	
 	}
