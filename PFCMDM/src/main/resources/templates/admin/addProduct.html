@@ -20,29 +20,30 @@
     <div class="content p-5">
 
         <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
-        <form class="formprod p-5" th:action="@{/test}" method="post" enctype="multipart/form-data">
+        <form class="formprod p-5" th:action="@{/test}" method="post" enctype="multipart/form-data" th:object="${producto}">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="email" class="form-control" id="name" placeholder="Email">
+                    <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{nombre}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Gender</label>
-                    <select name="gender" class="custom-select form-control">
-                        <option value="volvo">Man</option>
-                        <option value="fiat">Woman</option>
+                    <select name="gender" class="custom-select form-control" th:field="*{genero}">
+                         <option th:each="genero : ${generos}" name="genero"
+                                 th:value="${genero}" th:text="${genero}">
+                         </option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Description</label>
-                <textarea type="text" class="form-control" id="description" placeholder="Description"> </textarea>
+                <textarea type="text" class="form-control" id="description" placeholder="Description" th:field="*{descripcion}"> </textarea>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Price</label>
-                    <input type="text" class="form-control" id="price" placeholder="$$">
+                    <input type="text" class="form-control" id="price" placeholder="$$" th:field="*{precio}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Brand</label>

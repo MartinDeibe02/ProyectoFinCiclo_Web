@@ -10,9 +10,12 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 
 import com.cloudinary.utils.ObjectUtils;
+import com.des.mdm.PFCMDM.model.Genero;
+import com.des.mdm.PFCMDM.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,15 +67,18 @@ public class HomeController {
 }
 	
 	@GetMapping("/add")
-	public String add() {
+	public String add(Product producto, Model model) {
+		model.addAttribute("generos", Genero.values());
+		model.addAttribute("producto", producto);
+		
 		return "/admin/addProduct";
 }
 	
 	@PostMapping("/test")
-	public String test(@RequestParam("file") MultipartFile multipartFile) throws IOException {
-        
+	public String test(Product producto,@RequestParam("file") MultipartFile multipartFile) throws IOException {
 	    String url = uploadToCloudinary(multipartFile);
-	    System.out.println(url);
+	    producto.setProduct_image(url);
+        System.out.println(producto);
 
 		return "redirect:/add";
 }
