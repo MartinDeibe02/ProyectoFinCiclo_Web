@@ -1,23 +1,28 @@
 package com.des.mdm.PFCMDM.model;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Product {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	private String nombre;
-	
 	private String descripcion;
-	
 	@Enumerated(EnumType.STRING)
 	private Genero genero;
-	
 	private double precio;
-	
-	private Brand marca_id;
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "marca_id")
+	private Brand marca;
 	private String product_image;
 
 	public Integer getId() {
@@ -61,11 +66,11 @@ public class Product {
 	}
 
 	public Brand getMarca_id() {
-		return marca_id;
+		return marca;
 	}
 
-	public void setMarca_id(Brand marca_id) {
-		this.marca_id = marca_id;
+	public void setMarca_id(Brand marca) {
+		this.marca = marca;
 	}
 
 	public String getProduct_image() {
@@ -79,7 +84,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", genero=" + genero
-				+ ", precio=" + precio + ", marca_id=" + marca_id + ", product_image=" + product_image + "]";
+				+ ", precio=" + precio + ", marca_id=" + marca + ", product_image=" + product_image + "]";
 	}
 	
 	

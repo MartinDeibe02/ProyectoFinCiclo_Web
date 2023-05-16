@@ -1,10 +1,28 @@
 package com.des.mdm.PFCMDM.Home;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+
+import com.cloudinary.utils.ObjectUtils;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.cloudinary.Cloudinary;
 
 @Controller
 public class HomeController {
+	
 
 	@GetMapping("/")
 	public String Home() {
@@ -50,4 +68,24 @@ public class HomeController {
 		return "/admin/addProduct";
 }
 	
+	@PostMapping("/test")
+	public String test(@RequestParam("file") MultipartFile multipartFile) throws IOException {
+        
+	    String url = uploadToCloudinary(multipartFile);
+	    System.out.println(url);
+
+		return "redirect:/add";
+}
+	
+	
+	private String uploadToCloudinary(MultipartFile multipartFile) throws IOException {
+	    Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+	        "cloud_name", "daolhlyb6",
+	        "api_key", "853471969531956",
+	        "api_secret", "yQIl1DHYJbh0Gm3td56uD7d66ts",
+	        "secure", true));
+
+	    Map<?, ?> uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(), ObjectUtils.emptyMap());
+	    return (String) uploadResult.get("url");
+	}
 	}

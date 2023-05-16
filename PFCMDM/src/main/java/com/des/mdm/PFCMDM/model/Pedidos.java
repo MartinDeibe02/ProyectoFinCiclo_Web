@@ -2,11 +2,23 @@ package com.des.mdm.PFCMDM.model;
 
 import java.util.Date;
 
-public class Pedidos {
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Pedidos {
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
 		private String numero_de_orden;
 		private Date fecha_de_compra;
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name = "usuario_id")
 		private User usuario;
 		public int getId() {
 			return id;

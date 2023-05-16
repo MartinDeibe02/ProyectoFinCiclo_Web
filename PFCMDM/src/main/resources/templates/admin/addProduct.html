@@ -20,7 +20,7 @@
     <div class="content p-5">
 
         <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
-        <form class="formprod p-5">
+        <form class="formprod p-5" th:action="@{/test}" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <div class="mb-3">
                     <label for="formFile">Image</label>
-                    <input type="file" class="form-control-file form-control" id="archivo" accept=".png">
+                    <input type="file" class="form-control-file form-control" name="file" id="archivo" accept=".png">
                 </div>
                 <button type="submit" class="btn btn-primary submit">Add Product</button>
         </form>
