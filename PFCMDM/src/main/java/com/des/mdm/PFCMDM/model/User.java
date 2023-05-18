@@ -1,9 +1,17 @@
 package com.des.mdm.PFCMDM.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class User {
@@ -15,6 +23,13 @@ public class User {
 	private String contrasena;
 	private String direccion;
 	private String telefono;
+	private int estatus;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@JoinTable(name = "usuarios_permiso", 
+	joinColumns = @JoinColumn (name= "idUsuario"), 
+	inverseJoinColumns = @JoinColumn(name = "idPermiso"))
+	private List<Permisos> permisos;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -52,7 +67,18 @@ public class User {
 		this.telefono = telefono;
 	}
 	
-	
+	public int getEstatus() {
+		return estatus;
+	}
+	public void setEstatus(int estatus) {
+		this.estatus = estatus;
+	}
+	public List<Permisos> getPermisos() {
+		return permisos;
+	}
+	public void setPermisos(List<Permisos> permisos) {
+		this.permisos = permisos;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", correo_electronico=" + correo_electronico + ", contrasena="
