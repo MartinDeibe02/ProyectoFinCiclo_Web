@@ -1,5 +1,7 @@
 package com.des.mdm.PFCMDM.Service;
 
-public interface ProductService {
+import com.des.mdm.PFCMDM.model.Product;
 
+public interface ProductService {
+	void saveProduct(Product product);
 }

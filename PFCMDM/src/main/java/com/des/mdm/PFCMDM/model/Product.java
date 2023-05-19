@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "productos")
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,11 +67,11 @@ public class Product {
 		this.precio = precio;
 	}
 
-	public Brand getMarca_id() {
+	public Brand getMarca() {
 		return marca;
 	}
 
-	public void setMarca_id(Brand marca) {
+	public void setMarca(Brand marca) {
 		this.marca = marca;
 	}
 
