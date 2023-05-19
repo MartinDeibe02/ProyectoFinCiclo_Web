@@ -18,6 +18,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.des.mdm.PFCMDM.Service.BrandService;
 import com.des.mdm.PFCMDM.Service.ProductService;
+import com.des.mdm.PFCMDM.model.Brand;
 import com.des.mdm.PFCMDM.model.Genero;
 import com.des.mdm.PFCMDM.model.Product;
 
@@ -46,16 +47,18 @@ public class AdminController {
 }
 	
 	@GetMapping("/admin/add")
-	public String add(Product producto, Model model) {
+	public String add(Product producto,Brand brand, Model model) {
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("brands",brandService.findAllBrands());
 		model.addAttribute("producto", producto);
+		model.addAttribute("brand", brand);
+		
 		
 		return "/admin/addProduct";
 }
 	
 	@PostMapping("/saveProd")
-	public String test(Product producto,@RequestParam("file") MultipartFile multipartFile, BindingResult result,RedirectAttributes redirectAttributes, Model model) throws IOException {
+	public String saveProd(Product producto,@RequestParam("file") MultipartFile multipartFile, BindingResult result,RedirectAttributes redirectAttributes, Model model) throws IOException {
 		if (result.hasErrors()) {
             for (ObjectError error : result.getAllErrors()) {
                 System.out.println("Ocurrió un error: " + error.getDefaultMessage());
@@ -71,6 +74,13 @@ public class AdminController {
         return "redirect:/admin/add";	    
 
 }
+	
+	
+	@PostMapping("/saveBrand")
+	public String saveCat(Brand brand) {
+		System.out.println(brand);
+        return "redirect:/admin/add";	    
+	}
 	
 	
 	private String uploadToCloudinary(MultipartFile multipartFile) throws IOException {
