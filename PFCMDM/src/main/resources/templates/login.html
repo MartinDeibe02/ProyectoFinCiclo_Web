@@ -18,11 +18,11 @@
         <div class="row login_pane">
             <div class=" mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Log In</h2>
-                <form action="">
+                <form th:action="@{/login}" method="post">
                     <label for="username">Username</label>
-                    <input class="form-text" type="text" name="" id="">
+                    <input class="form-text" type="text" name="username" id="">
                     <label for="password">Password</label>
-                    <input class="form-text" type="password" name="" id="">
+                    <input class="form-text" type="password" name="password" id="">
                     <button class="log-button" type="submit">Log In</button>
                 </form>
                 <a class="align-self-start register" href="">Not registered?</a>

@@ -8,4 +8,5 @@ import com.des.mdm.PFCMDM.model.Brand;
 
 public interface BrandService {
 	List<Brand> findAllBrands();
+	void saveBrand(Brand brand);
 }

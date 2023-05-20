@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,7 +34,8 @@ public class AdminController {
 	
 	
 	@GetMapping("/admin/users")
-	public String adminUsers() {
+	public String adminUsers(Authentication auth) {
+		System.out.println(auth.getName());
 		return "/admin/adminPaneUsers";
 }
 	
@@ -78,7 +80,7 @@ public class AdminController {
 	
 	@PostMapping("/saveBrand")
 	public String saveCat(Brand brand) {
-		System.out.println(brand);
+		brandService.saveBrand(brand);
         return "redirect:/admin/add";	    
 	}
 	
