@@ -1,5 +1,6 @@
 package com.des.mdm.PFCMDM.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,9 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "usuarios")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +28,18 @@ public class User {
 	private String telefono;
 	private int estatus;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	@JoinTable(name = "usuarios_permiso", 
-	joinColumns = @JoinColumn (name= "idUsuario"), 
-	inverseJoinColumns = @JoinColumn(name = "idPermiso"))
-	private List<Permisos> permisos;
+    @JoinTable(name = "Usuarios_permiso", 
+    joinColumns = @JoinColumn (name= "idusuario"), //U mayuscula
+    inverseJoinColumns = @JoinColumn(name = "idpermiso"))
+
+    private List<Permisos> permisos;
+	
+	public void agregarPermiso(Permisos temp_permiso) {
+        if(permisos==null) {
+        	permisos = new LinkedList<Permisos>();
+        }
+        permisos.add(temp_permiso);
+    }
 	
 	public Integer getId() {
 		return id;
@@ -73,17 +84,17 @@ public class User {
 	public void setEstatus(int estatus) {
 		this.estatus = estatus;
 	}
-	public List<Permisos> getPermisos() {
-		return permisos;
-	}
-	public void setPermisos(List<Permisos> permisos) {
-		this.permisos = permisos;
-	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", correo_electronico=" + correo_electronico + ", contrasena="
-				+ contrasena + ", direccion=" + direccion + ", telefono=" + telefono + "]";
+				+ contrasena + ", direccion=" + direccion + ", telefono=" + telefono + ", estatus=" + estatus
+				+ ", permisos=" + permisos + "]";
 	}
+	
+	
+	
+	
 	
 	
 	

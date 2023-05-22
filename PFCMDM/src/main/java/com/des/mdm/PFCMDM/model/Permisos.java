@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="permisos")
 public class Permisos {
 
 	@Id
@@ -24,7 +26,10 @@ public class Permisos {
 	public void setPermiso(String permiso) {
 		this.permiso = permiso;
 	}
-	
+	@Override
+	public String toString() {
+		return "Permisos [id=" + id + ", permiso=" + permiso + "]";
+	}
 	
 	
 }

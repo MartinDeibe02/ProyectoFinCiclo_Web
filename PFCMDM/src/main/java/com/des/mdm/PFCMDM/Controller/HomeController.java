@@ -14,6 +14,7 @@ import com.des.mdm.PFCMDM.model.Genero;
 import com.des.mdm.PFCMDM.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,8 @@ public class HomeController {
 	
 
 	@GetMapping("/")
-	public String Home() {
+	public String Home(Authentication auth) {
+		System.out.println(auth.getName());
 		return "homepage";
 	}
 	

@@ -20,15 +20,17 @@
             </div>
             <div class="mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Register</h2>
-                <form action="">
+                <form th:action="@{/saveUser}" method="post" th:object="${user}">
                     <label for="email">Email</label>
-                    <input class="form-text" type="email" name="" id="" required>
+                    <input class="form-text" type="email" name="email" th:field="*{correo_electronico}" required>
                     <label for="username">Username</label>
-                    <input class="form-text" type="username" name="" id="" required>
+                    <input class="form-text" type="username" name="nombre" th:field="*{nombre}" required>
                     <label for="password">Password</label>
-                    <input class="form-text" type="password" name="" id="" required>
-                    <label for="date">Date of Birth</label>
-                    <input class="form-text" type="date" name="" id="date">
+                    <input class="form-text" type="password" name="contrasena" th:field="*{contrasena}" required>
+                    <label for="date">Street</label>
+                    <input class="form-text" type="text" name="street" th:field="*{direccion}">
+                    <label for="date">Phone</label>
+                    <input class="form-text" type="tel" name="tel" th:field="*{telefono}">
                     <button class="log-button" type="submit">Register</button>
                 </form>
                 <a class="align-self-start register" href="#">Log In?</a>
