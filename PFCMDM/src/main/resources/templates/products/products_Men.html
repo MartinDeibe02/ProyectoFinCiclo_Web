@@ -13,6 +13,9 @@
     <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
     <link rel="stylesheet" th:href="@{/css/products/products.css}">
     <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+    
+    <script th:src="@{/js/pagination.js}"></script>
+
 
 </head>
 
@@ -76,11 +79,11 @@
     
     <nav aria-label="Page navigation example" style="display: flex;justify-content: center;">
 	  <ul class="pagination">
-	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage - 1}__}" th:if="${actualPage > 0}" th:onclick="changePage(event, ${actualPage - 1})">&lt;&lt;</a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage - 1}__}" th:if="${actualPage > 0}" th:onclick="changePage(event, ${actualPage - 1})">Prev</a></li>
+	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage - 1}__}" th:if="${actualPage > 0}">&lt;&lt;</a></li>
+	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage - 1}__}" th:if="${actualPage > 0}">Prev</a></li>
 	    <li class="page-item"><a class="page-link" th:text="${actualPage}"></a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage + 1}__}" th:if="${actualPage + 1 < totalPage}" th:onclick="changePage(event, ${actualPage + 1})">Next</a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${totalPage - 1}__}" th:if="${actualPage + 1 < totalPage}" th:onclick="changePage(event, ${totalPage - 1})">&gt;&gt;</a></li>
+	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${actualPage + 1}__}" th:if="${actualPage + 1 < totalPage}">Next</a></li>
+	    <li class="page-item"><a class="page-link" th:href="@{/men?page=__${totalPage - 1}__}" th:if="${actualPage + 1 < totalPage}">&gt;&gt;</a></li>
 	  </ul>
 	</nav>
 
