@@ -34,6 +34,7 @@ public class DatabaseWebConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().antMatchers("/img/**",
 				 "/css/**",
 				 "/js/**").permitAll()
+		.antMatchers("/").hasAnyAuthority("USER")
 		.antMatchers("/","/login","/admin/**").hasAnyAuthority("ADMIN")
 		.antMatchers("/register","/saveUser").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
 	}

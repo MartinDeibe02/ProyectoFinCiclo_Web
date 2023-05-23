@@ -57,3 +57,22 @@
   transform: scale(1.05);
   transition: transform 0.5s ease-in-out;
 }
+
+.pagination .page-item {
+  margin: 5px;
+  list-style: none;
+}
+
+.pagination .page-item a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item a:hover {
+  background-color: black;
+  color: white;
+}

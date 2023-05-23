@@ -9,14 +9,14 @@ footer{
     width: 40px;
 }
 
-li{
+.footer_li{
     list-style: none;
     font-size: 20px;
     font-weight: 300;
     margin-bottom:20px;
 }
 
-li>a{
+.footer_li>a{
     color: white;
     position: relative;
 }
@@ -33,12 +33,12 @@ hr {
     padding-top: 50px;
 }
   
-  li>a:hover {
+.footer_li>a:hover {
     color: white;
     text-decoration: none;
   }
   
-  li>a::before {
+.footer_li>a::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -49,6 +49,6 @@ hr {
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
-  li>a:hover::before {
+.footer_li>a:hover::before {
     transform: scaleX(1);
   }
