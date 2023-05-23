@@ -21,6 +21,12 @@
             <div class="mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Register</h2>
                 <form th:action="@{/saveUser}" method="post" th:object="${user}">
+		            <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
+			            Por favor corrija los errores del formulario
+			            	<ul>
+			            		<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+			            	</ul>
+			        </div>  
                     <label for="email">Email</label>
                     <input class="form-text" type="email" name="email" th:field="*{correo_electronico}" required>
                     <label for="username">Username</label>
@@ -30,10 +36,10 @@
                     <label for="date">Street</label>
                     <input class="form-text" type="text" name="street" th:field="*{direccion}">
                     <label for="date">Phone</label>
-                    <input class="form-text" type="tel" name="tel" th:field="*{telefono}">
+                    <input class="form-text" type="tel" name="tel" pattern="^\d+$" th:field="*{telefono}">
                     <button class="log-button" type="submit">Register</button>
                 </form>
-                <a class="align-self-start register" href="#">Log In?</a>
+                <a class="align-self-start register" th:href="@{/login}">Log In?</a>
             </div>
             
 
