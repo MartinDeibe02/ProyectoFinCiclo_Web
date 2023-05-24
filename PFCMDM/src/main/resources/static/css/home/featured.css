@@ -28,7 +28,13 @@
 
 }
 
+.test{
+	height: 300px;
+}
 
+.card-body{
+	color:black;
+}
 
 
   @media only screen and (max-width: 999px) {

@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 
 import com.cloudinary.utils.ObjectUtils;
+import com.des.mdm.PFCMDM.Service.ProductService;
 import com.des.mdm.PFCMDM.model.Genero;
 import com.des.mdm.PFCMDM.model.Product;
 
@@ -28,10 +29,13 @@ import com.cloudinary.Cloudinary;
 @Controller
 public class HomeController {
 	
+	@Autowired
+	ProductService productService;
 
 	@GetMapping("/")
-	public String Home(Authentication auth) {
+	public String Home(Authentication auth, Model model) {
 		System.out.println(auth.getName());
+		model.addAttribute("prods", productService.findFeatured());
 		return "homepage";
 	}
 	

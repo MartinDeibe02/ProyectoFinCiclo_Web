@@ -12,4 +12,6 @@ public interface ProductService {
 	Page<Product> findProdsMen(int pagina, int tamanoPagina);
 	Page<Product> findProdsWoman(int pagina, int tamanoPagina);
 	Page<Product> paginacion(int pagina, int tamanoPagina);
+	List<Product> findFeatured();
+	Product findByName(String name);
 }

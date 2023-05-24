@@ -11,4 +11,6 @@ import com.des.mdm.PFCMDM.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer>{
 	Page<Product> findByGenero(Genero genero, Pageable pageable);
+	List<Product> findByFeatured(int featured);
+	Product findByNombre(String nombre);
 }

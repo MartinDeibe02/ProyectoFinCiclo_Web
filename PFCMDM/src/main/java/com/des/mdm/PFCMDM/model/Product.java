@@ -26,6 +26,7 @@ public class Product {
 	@JoinColumn(name = "marca_id")
 	private Brand marca;
 	private String product_image;
+	private int featured;
 
 	public Integer getId() {
 		return id;
@@ -83,11 +84,22 @@ public class Product {
 		this.product_image = product_image;
 	}
 
+	public int getFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(int featured) {
+		this.featured = featured;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", genero=" + genero
-				+ ", precio=" + precio + ", marca_id=" + marca + ", product_image=" + product_image + "]";
+				+ ", precio=" + precio + ", marca=" + marca + ", product_image=" + product_image + ", featured="
+				+ featured + "]";
 	}
+
+
 	
 	
 	

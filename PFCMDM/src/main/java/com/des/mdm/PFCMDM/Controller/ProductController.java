@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.des.mdm.PFCMDM.Service.ProductService;
@@ -72,8 +73,17 @@ public class ProductController {
 		return "/products/products";
 }
 	
-	@GetMapping("/detail")
-	public String detail(HttpServletRequest request, Model model) {
+	@GetMapping("/detail/{name}")
+	public String detail(HttpServletRequest request, Model model, @PathVariable("name") String name) {
+		Product prod = productService.findByName(name);
+		
+		if(!(prod == null)) {
+			model.addAttribute("product", prod);
+		}else {
+			return "error";
+		}
+		
+		
 	    String currentUrl = request.getRequestURI() + "?" + request.getQueryString();
 	    model.addAttribute("currentUrl", currentUrl);
 		return "/products/detail";

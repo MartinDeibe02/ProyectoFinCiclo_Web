@@ -1,6 +1,8 @@
 package com.des.mdm.PFCMDM.ServiceImpl;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,38 @@ public class ProductServiceImpl implements ProductService{
 
 	    Pageable pageable = PageRequest.of(pagina, tamanoPagina);
 	    return productRepository.findByGenero(genero, pageable);
+	}
+
+	@Override
+	public List<Product> findFeatured() {
+		
+		List<Product> featuredList = productRepository.findByFeatured(1);
+		List<Product> productList = productRepository.findAll();
+		
+		if(featuredList.isEmpty()) {
+			Collections.shuffle(productList);
+		    List<Product> randomProducts = featuredList.subList(0, Math.min(productList.size(), 4));
+			return randomProducts;
+		}else {
+		    Collections.shuffle(featuredList);
+		    List<Product> randomProducts = featuredList.subList(0, Math.min(featuredList.size(), 4));
+
+			return randomProducts;
+		}
+		
+	}
+
+	@Override
+	public Product findByName(String name) {
+		Optional<Product> prod = Optional.ofNullable(productRepository.findByNombre(name));
+		
+		if(prod.isPresent()) {
+			Product getProd = prod.get();
+			return getProd;
+		}else {
+			return null;
+		}
+
 	}
 
 

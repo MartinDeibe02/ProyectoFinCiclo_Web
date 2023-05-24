@@ -25,41 +25,19 @@
     <div class="featured-title">
         <h2 class="text-center">FEATURED</h2>
         <div class=" cards row d-flex justify-content-around">
-
-            <div class="card">
-                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
+		<a th:each="producto : ${prods}" th:href="@{/detail/{name} (name=${producto.nombre})}">
+            <div class="card" >
+            <div class="test d-flex ">
+                 <img class="card-img-top align-self-center featured-image" th:src="${producto.product_image}" alt="Card image cap">
+            </div>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p>2000$</p>
+                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                    <p th:text="${producto.precio}"></p>
 
                 </div>
             </div>
 
-            <div class="card">
-                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p>2000$</p>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p>2000$</p>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top featured-image" th:src="@{/img/home_img/lv_nba.webp}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p>2000$</p>
-                </div>
-            </div>
+            </a>
 
         </div>
     </div>
