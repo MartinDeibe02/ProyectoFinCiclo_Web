@@ -31,7 +31,7 @@
 }
 
 .card {
-  width: fit-content;
+  width: 400px;
   margin-bottom: 10px;
 }
 
@@ -45,6 +45,8 @@
 
 .img-thumbnail {
   border: none;
+  height: 300px;
+  object-fit: contain;
 }
 
 .card {

@@ -1,55 +1,75 @@
+.prod_img{
+    width: 100%;
+    -webkit-filter: drop-shadow(10px 10px 10px gray);
+    filter: drop-shadow(10px 10px 10px gray);
+    
+  }
 
-.imgdetail{
-	width: 100%;
+  .xd{
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.319), white), url("/img/back_detail.png");  
+    max-height: 650px;
 }
 
-.product-image{
-	padding: 50px;
+.detail{
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.product-info {
-    margin: auto;
-    text-align: center;
-}
-.product-name {
-    font-size: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 30px;
-}
-.product-price {
-    font-size: 36px;
-    color: black;
-    margin-bottom: 40px;
-}
-.product-description {
-    margin-bottom: 40px;
-    font-size: 24px;
-}
-.btn-buy {
-    margin-top: 40px;
-    font-size: 24px;
-    padding: 20px 50px;
-    border-radius: 0;
-    border: none;
-    background-color: black;
-    transition: all 0.2s ease-in-out;
-}
-.btn-buy:hover {
+
+
+
+.btn-cart{
+    width: 50px;
+    height: 50px;
     background-color: white;
-    transform: scale(1.1);
-    cursor: pointer;
-    border: 1px black solid;
     color: black;
-    border-radius: 5px;
-}
-.product-info {
-    background-color: #fff;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 50px;
+    border-radius: 40px;
+    border: 1px solid black;
 }
 
+.btn-cart:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s ease;
 
+    border: 0;
+}
+
+hr{
+    width: 50px;
+    background-color: black;
+    margin: 0;
+}
+
+.buy{
+    border: 1px solid black;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+}
+
+.buy:hover{
+    transition: 0.3s ease;
+    background-color: black;
+    color: white;
+}
+
+.next{
+    text-align: end;
+}
+
+.next{
+    color: black;
+}
+
+.button-shop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-shop{
+    display: flex;
+    justify-content: space-between;    
+}
 
 
 

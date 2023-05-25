@@ -1,5 +1,7 @@
 package com.des.mdm.PFCMDM.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +80,10 @@ public class ProductController {
 		Product prod = productService.findByName(name);
 		
 		if(!(prod == null)) {
+			System.out.println(prod.getMarca().getNombre());
 			model.addAttribute("product", prod);
+		    model.addAttribute("title", "DETAIL");
+
 		}else {
 			return "error";
 		}
@@ -88,6 +93,9 @@ public class ProductController {
 	    model.addAttribute("currentUrl", currentUrl);
 		return "/products/detail";
 }
+	
+	
+
 	
 	
 	
