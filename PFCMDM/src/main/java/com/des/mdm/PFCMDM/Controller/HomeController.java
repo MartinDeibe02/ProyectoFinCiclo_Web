@@ -34,7 +34,6 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String Home(Authentication auth, Model model) {
-		System.out.println(auth.getName());
 		model.addAttribute("prods", productService.findFeatured());
 		return "homepage";
 	}

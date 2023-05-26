@@ -33,9 +33,14 @@ public class DatabaseWebConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/img/**",
 				 "/css/**",
-				 "/js/**").permitAll()
-		.antMatchers("/").hasAnyAuthority("USER")
-		.antMatchers("/","/login","/admin/**").hasAnyAuthority("ADMIN")
+				 "/js/**").permitAll().antMatchers("/",
+													"/products",
+													"/man",
+													"/woman",
+													"/login",
+													"/register").permitAll()
+		.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/logout").hasAnyAuthority("USER")
 		.antMatchers("/register","/saveUser").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
 	}
 	

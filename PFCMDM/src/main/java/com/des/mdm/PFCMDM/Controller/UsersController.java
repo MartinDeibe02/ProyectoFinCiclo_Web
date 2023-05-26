@@ -1,7 +1,10 @@
 package com.des.mdm.PFCMDM.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -63,5 +66,12 @@ public class UsersController {
 		String pass = passwordEncoder.encode(value);
 		return pass;
 	}
+	
+	@GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+        logoutHandler.logout(request, null, null);
+        return "redirect:/";
+    }
 	
 }

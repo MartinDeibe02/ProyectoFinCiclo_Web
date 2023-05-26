@@ -78,6 +78,80 @@ body::before {
     background-size: cover;
   }
   
+  .dropdown-menu {
+  background-color: transparent;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
+  color: white;
+}
+.dropdown-item{
+	color:white;	
+	padding-left: 0;
+	
+}
+
+.dropdown-item {
+  position: relative;
+  font-weight: 300;
+  margin-left: 0;
+}
+
+.dropdown-toggle{
+	background-color: transparent;
+	font-weight: 300;
+	border: 0;
+	font-size: 30px;
+	
+}
+
+
+#profileDropdown {
+  background-color: transparent;
+  outline: none;
+  border:0;
+}
+
+#profileDropdown:active {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+#profileDropdown:focus {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+
+
+
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.dropdown-item:hover::before,
+.dropdown-item:hover::after {
+  width: 80%;
+  left: 0%;
+}
+
+
+
+
+  
   .hero-img {
     width: 100%;
     height: auto;
@@ -141,6 +215,10 @@ body::before {
           text-align: center;
           min-width: 200px;
           width: 100%;
+      }
+      
+      .nav-item{
+      margin-top: 20px;
       }
   
       .logo-img{
