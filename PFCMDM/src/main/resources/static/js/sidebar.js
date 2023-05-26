@@ -7,7 +7,6 @@
 
             closeBtn.addEventListener("click", function () {
                 sidebar.classList.toggle("open")
-                menuBtnChange()
             })
 
         }

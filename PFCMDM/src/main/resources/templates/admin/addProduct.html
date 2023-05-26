@@ -96,15 +96,8 @@
 
 
     <script th:src="@{/js/sidebar.js}"></script>
-    <script>
-        document.getElementById("archivo").addEventListener("change", function () {
-            var archivo = this.files[0];
-            if (!archivo || archivo.type.indexOf("image/png") === -1) {
-                alert("File must be *.png");
-                this.value = "";
-            }
-        });
-    </script>
+    <script th:src="@{/js/imagepng.js}"></script>
+
 
 </body>
 

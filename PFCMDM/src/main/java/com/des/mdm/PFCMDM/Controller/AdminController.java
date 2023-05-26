@@ -19,6 +19,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.des.mdm.PFCMDM.Service.BrandService;
 import com.des.mdm.PFCMDM.Service.ProductService;
+import com.des.mdm.PFCMDM.Service.UserService;
 import com.des.mdm.PFCMDM.model.Brand;
 import com.des.mdm.PFCMDM.model.Genero;
 import com.des.mdm.PFCMDM.model.Product;
@@ -32,10 +33,13 @@ public class AdminController {
 	@Autowired
 	ProductService productService;
 	
+	@Autowired
+	UserService userService;
+	
 	
 	@GetMapping("/admin/users")
-	public String adminUsers(Authentication auth) {
-		System.out.println(auth.getName());
+	public String adminUsers(Authentication auth, Model model) {
+		model.addAttribute("users", userService.findUsers());
 		return "/admin/adminPaneUsers";
 }
 	

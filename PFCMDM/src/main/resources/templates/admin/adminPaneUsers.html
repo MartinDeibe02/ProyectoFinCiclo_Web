@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+    <title>Admin pane</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/admin.css}">
     <link rel="stylesheet" th:href="@{/css/sidebar.css}">
-
+  	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 </head>
 
 <body>
@@ -88,9 +88,9 @@
   </div>
 
   <div class="col-12 col-md-7 my-3 d-flex justify-content-around">
-      <button type="button" class="btn btn-success crud" data-bs-toggle="modal">New</button>
-      <button type="button" class="btn btn-warning crud">Edit</button>
-      <button type="button" class="btn btn-danger crud">Delete</button>
+      <button type="button" class="btn btn-success crud" data-bs-toggle="modal" data-action="new">New</button>
+      <button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
+      <button type="button" class="btn btn-danger crud" data-action="delete">Delete</button>
   </div>
 </section>
 
@@ -99,49 +99,25 @@
         <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Direction</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row" data-id="1">1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                <tr th:each="user: ${users}">
+                    <td scope="row" th:data-id="${user.id}" th:text="${user.nombre}"></td>
+                    <td th:text="${user.correo_electronico}"></td>
+                    <td>***</td>
+                    <td th:text="${user.direccion}"></td>
+                    <td th:text="${user.telefono}"></td>
+                    <td th:text="${user.estatus}"></td>
+                    
                 </tr>
-                <tr>
-                    <td scope="row" data-id="2">2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
+                
             </tbody>
         </table>
 
@@ -152,29 +128,7 @@
 
 
 	<script th:src="@{/js/sidebar.js}"></script>
-	
-    <script type="text/javascript">
-
-
-        $(document).ready(function() {
-            $('.table tbody tr').click(function () {
-                var id = $(this).find('td').data('id');
-                var tds = $(this).find('td');
-                var url = '/delete/' + id;
-                $('.eliminar').attr('href', url);
-                $('tr').removeClass('table-dark');
-                $(this).addClass('table-dark');
-                tds.addClass('texto-negro');
-
-                // Si hay una fila seleccionada anteriormente, quita la clase 'texto-blanco'
-                $('.table tbody tr:not(.table-dark)').find('td').removeClass('texto-negro');
-                
-                console.log(url);
-            });
-        });
-
-
-    </script>
+    <script th:src="@{/js/tableID.js}"></script>
 </body>
 
 </html>
