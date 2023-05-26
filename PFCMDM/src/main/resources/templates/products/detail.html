@@ -57,50 +57,20 @@
 
     <div class="comment-section">
         <h2>Comments</h2>
-        <form>
-          <label for="name">Nombre:</label>
-          <input type="text" id="name" name="name">
-          <label for="comment">Comentario:</label>
-          <textarea id="comment" name="comment"></textarea>
-          <button type="submit">Enviar</button>
+        <form th:action="@{/saveComent}" method="post">
+	      <input type="hidden" th:field="*{product.nombre}" th:name="nombre" id="nombre">
+        
+          <label for="name" th:text="'User: ' + ${usuario}">:</label>
+          <label for="comment">Coment:</label>
+          <textarea id="comentario" th:name="comentario" required></textarea>
+          <button type="submit">Send</button>
         </form>
         <div class="comments mt-5">
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
+          <div class="comment" th:each="coment: ${comentList}">
+            <h3 th:text="${coment.usuario}"></h3>
+            <p th:text="${coment.comentario}"></p>
           </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
-          <div class="comment">
-            <h3>Username</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit .</p>
-          </div>
+          
           
           
           
