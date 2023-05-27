@@ -38,10 +38,13 @@ public class DatabaseWebConfig extends WebSecurityConfigurerAdapter{
 													"/man",
 													"/woman",
 													"/login",
-													"/register").permitAll()
+													"/register",
+													"/buy").permitAll()
 		.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
-		.antMatchers("/logout").hasAnyAuthority("USER")
+		.antMatchers("/logout" ).hasAnyAuthority("USER")
 		.antMatchers("/register","/saveUser").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
+	
+	http.csrf().ignoringAntMatchers("/buy");
 	}
 	
 	@Bean

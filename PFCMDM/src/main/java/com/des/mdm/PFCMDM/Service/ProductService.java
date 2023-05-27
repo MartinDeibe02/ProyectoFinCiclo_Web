@@ -14,4 +14,5 @@ public interface ProductService {
 	Page<Product> paginacion(int pagina, int tamanoPagina);
 	List<Product> findFeatured();
 	Product findByName(String name);
+	Product findById(int id);
 }

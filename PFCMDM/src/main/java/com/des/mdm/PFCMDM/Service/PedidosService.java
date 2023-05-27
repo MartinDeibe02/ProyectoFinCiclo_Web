@@ -1,5 +1,7 @@
 package com.des.mdm.PFCMDM.Service;
 
-public interface PedidosService {
+import com.des.mdm.PFCMDM.model.Pedidos;
 
+public interface PedidosService {
+	void savePedido(Pedidos pedidos);
 }

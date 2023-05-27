@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
@@ -33,7 +34,7 @@
                             <h5 class="card-title font-weight-bold" th:text="${producto.nombre}"></h5>
                             <p class="card-text" th:text="${producto.precio}"></p>
                             <a th:href="@{/detail/{name} (name=${producto.nombre})}" class="btn details px-auto">Details</a><br />
-                            <a href="#" class="btn cart px-auto">ADD TO CART</a>
+                            <button class="btn cart buy" th:data-product-id="${producto.id}">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -57,6 +58,7 @@
 
     <script th:src="@{/js/home.js}"></script>
     
+    <script th:src="@{/js/cart.js}"></script>
 
 </body>
 

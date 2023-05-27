@@ -25,19 +25,30 @@
 
             <div class="collapse navbar-collapse" id="myNavbarToggler7">
                 <ul class="navbar-nav mx-auto nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link nav-buttons" href="#">Products</a>
+                    <li class="nav-item d-flex align-items-center justify-content-center">
+                        <a class="nav-link nav-buttons" th:href="@{/products}">Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-buttons" href="#">Cart</a>
+                    <li class="nav-item d-flex align-items-center justify-content-center">
+                        <a class="nav-link nav-buttons" th:href="@{/cart}">Cart</a>
                     </li>
-                    <a class="d-none d-lg-block " href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
-                    <li class="nav-item">
+                    <a class="d-none d-lg-block text-center" th:href="@{/}"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
+                    <li class="nav-item d-flex align-items-center justify-content-center">
                         <a class="nav-link nav-buttons" href="#">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-buttons" href="#">Profile</a>
-                    </li>
+                    <li class="nav-item  d-flex align-items-center justify-content-center">
+					  <div class="dropdown">
+					    <button class="btn btn-secondary nav-buttons dropdown-toggle" type="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      <span th:if="${#httpServletRequest.userPrincipal != null}"><span th:text="${#httpServletRequest.userPrincipal.name}"></span></span>
+					      <span th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</span>
+					    </button>
+					    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+						  <a class="dropdown-item" th:href="@{/admin/users}" th:if="${#httpServletRequest.userPrincipal != null}" sec:authorize="hasAuthority('ADMIN')">Panel de Admin</a>
+					      <a class="dropdown-item" th:href="@{/logout}" th:if="${#httpServletRequest.userPrincipal != null}">Cerrar sesión</a>
+					      <a class="dropdown-item" th:href="@{/login}" th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</a>
+					      <a class="dropdown-item" th:href="@{/register}" th:unless="${#httpServletRequest.userPrincipal != null}">Registrarse</a>
+					    </div>
+					  </div>                        
+                    </li>	
                 </ul>
             </div>
         </nav>
@@ -57,30 +68,33 @@
                                 <hr class="my-4">
                                 </hr>
 
-                                <!-- {carritoCompra && carritoCompra.map(jersey => ( -->
+								<div class="row mb-4 d-flex justify-content-between align-items-center" th:if="${prods.isEmpty()}">
+								    <div class="col-md-12 text-center">
+								        <h4>0 products</h4>
+								    </div>
+								</div>
 
-                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                <div class="row mb-4 d-flex justify-content-between align-items-center" th:unless="${prods.isEmpty()}" th:each="prod: ${prods}">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                        <img th:src="@{/img/home_img/lv_nba.webp}" class="img-cart rounded-3"
-                                            alt="Cotton T-shirt"></img>
+                                        <img th:src="${prod.product.product_image}" class="img-cart rounded-3"
+                                            alt="IMAGE"></img>
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
-                                        <h6 class="text-muted">Jersey</h6>
-                                        <h6 class="text-black mb-0">LV</h6>
+                                        <h6 class="text-muted" th:text="${prod.product.nombre}"> </h6>
+                                        <h6 class="text-black mb-0" th:text="${prod.product.marca.nombre}"></h6>
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                         <div class="btn btn-link px-2">
                                         </div>
 
-                                        <label id="form1" name="quantity" class="form-control mt-2 form-control-sm">
-                                            20</label>
+                                        <label id="form1" name="quantity" class="form-control mt-2 form-control-sm" th:text="${prod.cantidad}"></label>
 
                                         <div class="btn btn-link px-2">
                                             
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                        <h6 class="mb-0">2000 $</h6>
+                                        <h6 class="mb-0" th:text="'$ ' + ${prod.precio}"></h6>
                                     </div>
                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                         <div class="btn btn-link text-muted">
@@ -96,7 +110,7 @@
 
                         <div class="col-lg-4 bg-grey">
                             <div class="p-5">
-                                <h3 class="fw-bold mb-5 mt-2 pt-1">Buy</h3>
+                                <h3 class="fw-bold mb-5 mt-2 pt-1" >Buy</h3>
                                 <hr class="my-4">
                                 </hr>
 
@@ -126,11 +140,11 @@
 
                                 <div class="d-flex justify-content-between mb-5">
                                     <h5 class="text-uppercase">Total price</h5>
-                                    <h5>1000 $</h5>
+                                    <h5 th:text="'$ ' + ${total}"></h5>
                                 </div>
-
-                                <button type="button" class=" button btn btn-block btn-lg">Buy</button>
-
+								<a th:href="@{/completeCart}">
+                                <button type="button"  class=" button btn btn-block btn-lg" th:unless="${prods.isEmpty()}">Buy</button>
+								</a>
                             </div>
                         </div>
                     </div>

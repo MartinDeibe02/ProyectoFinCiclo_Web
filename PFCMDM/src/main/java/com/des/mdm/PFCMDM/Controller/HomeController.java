@@ -8,6 +8,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import com.cloudinary.utils.ObjectUtils;
 import com.des.mdm.PFCMDM.Service.ProductService;
@@ -16,6 +17,7 @@ import com.des.mdm.PFCMDM.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,10 +45,6 @@ public class HomeController {
 		return "brands";
 	}
 	
-	@GetMapping("/reg")
-	public String register() {
-		return "cart";
-	}
 	
 	
 
@@ -55,5 +53,6 @@ public class HomeController {
 		model.addAttribute("title", "NBA STORE");
 	}
 	
+
 
 	}
