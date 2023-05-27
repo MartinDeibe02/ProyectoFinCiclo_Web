@@ -58,7 +58,7 @@ public class CarritoController {
 			peds.setPedido(pedido);
 			prodsPedService.savePedProd(peds);
 		}
-		
+		RestCartController.carrito.clear();
 		
 		
 		return "redirect:/cart";

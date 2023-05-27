@@ -1,8 +1,10 @@
 package com.des.mdm.PFCMDM.Controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -67,10 +69,12 @@ public class UsersController {
 		return pass;
 	}
 	
-	@GetMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-        logoutHandler.logout(request, null, null);
+    @GetMapping("/test/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+    	RestCartController.carrito.clear();
+        if (authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+        }
         return "redirect:/";
     }
 	

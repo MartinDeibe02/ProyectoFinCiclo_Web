@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.cloudinary.utils.ObjectUtils;
 import com.des.mdm.PFCMDM.Service.ProductService;
@@ -45,8 +46,7 @@ public class HomeController {
 		return "brands";
 	}
 	
-	
-	
+
 
 	@ModelAttribute
 	public void setGenericos(Model model) {

@@ -98,7 +98,6 @@ public class ProductController {
 			if(!(prod == null)) {
 				model.addAttribute("product", prod);
 			    model.addAttribute("title", "DETAIL");
-			    model.addAttribute("usuario", authentication.getName());
 			    model.addAttribute("comentList", comentarioService.findComentarios_Prod(prod));
 	
 	

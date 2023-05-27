@@ -19,10 +19,10 @@ $(document).ready(function() {
             data: productId.toString(),
             contentType: "text/plain",
             success: function() {
-            	console.log("Producto comprado: " + productId);
+            	toastr.success("Added to cart");
             },
             error: function() {
-                console.log("Error al comprar el producto");
+                toastr.error("Error");
             }
         });
     }

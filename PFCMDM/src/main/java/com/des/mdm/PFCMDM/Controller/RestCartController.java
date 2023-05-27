@@ -39,13 +39,14 @@ public class RestCartController {
             if (prod.getId().equals(prodRep.getProduct().getId())) {
                 productoRepetido = true;
                 prod_ped = prodRep;
-                contador++;
+                contador = prod_ped.getCantidad();
             }
         }
 
         if (productoRepetido) {
             	
                 System.out.println("El producto ya está en el carrito " + contador);
+                contador++;
                 prod_ped.setCantidad(contador);
                 System.out.println("CANT" + prod_ped.getCantidad());
             	prod_ped.setPrecio(prod.getPrecio()*contador);
