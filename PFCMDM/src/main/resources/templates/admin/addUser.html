@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/addprod.css}">
+    
+    
+</head>
+<body>
+
+
+<div class="sidebar" th:insert="/fragment/sidebar"></div>
+
+<div class="content p-5">
+
+        <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add User</h2>
+        <form class="formprod p-5" th:action="@{/admin/saveUser}" method="post" enctype="multipart/form-data" th:object="${user}">
+
+			<div th:if="${success}" class="alert alert-success" role="alert">
+			    <p th:text="${success}"></p>
+			</div>
+			<div th:if="${error}" class="alert alert-danger" role="alert">
+			    <p th:text="${error}"></p>
+			</div>           
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{nombre}" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="email" th:field="*{correo_electronico}" required>
+
+                </div>
+            </div>
+            <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{contrasena}" required> </input>
+            </div>
+            <div class="form-group col-md-6">
+                    <label for="inputPassword4">Phone</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="phone" th:field="*{telefono}" required>
+            </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Direction</label>
+                    <input type="text" class="form-control" id="direccion" placeholder="direction" th:field="*{direccion}" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Status</label>
+                    <select name="estatus" class="custom-select form-control" th:field="*{estatus}">
+                        <option name="estatus" th:value="1" th:text="enabled">
+                        <option name="estatus" th:value="0" th:text="disabled">
+                         </option>
+                    </select>
+                </div>
+
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit">Add User</button>
+        </form>
+    </div>
+    
+        <script th:src="@{/js/sidebar.js}"></script>
+    
+</body>
+</html>

@@ -15,4 +15,5 @@ public interface ProductService {
 	List<Product> findFeatured();
 	Product findByName(String name);
 	Product findById(int id);
+	long countProds();
 }

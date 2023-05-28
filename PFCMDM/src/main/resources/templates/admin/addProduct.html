@@ -20,7 +20,7 @@
     <div class="content p-5">
 
         <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
-        <form class="formprod p-5" th:action="@{/saveProd}" method="post" enctype="multipart/form-data" th:object="${producto}">
+        <form class="formprod p-5" th:action="@{/admin/saveProd}" method="post" enctype="multipart/form-data" th:object="${producto}">
 
 			<div th:if="${success}" class="alert alert-success" role="alert">
 			    <p th:text="${success}"></p>

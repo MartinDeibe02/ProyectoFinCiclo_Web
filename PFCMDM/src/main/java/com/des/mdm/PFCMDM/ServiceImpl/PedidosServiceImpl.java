@@ -18,4 +18,9 @@ public class PedidosServiceImpl implements PedidosService {
 		pedidosrepository.save(pedidos);
 	}
 
+	@Override
+	public long countPedido() {
+		return pedidosrepository.count();
+	}
+
 }

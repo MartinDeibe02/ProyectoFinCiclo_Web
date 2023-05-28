@@ -12,7 +12,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
     <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
@@ -63,9 +64,9 @@
         <form th:action="@{/saveComent}" method="post">
 	      <input type="hidden" th:field="*{product.nombre}" th:name="nombre" id="nombre">
         
-          <label for="comment">Coment:</label>
-          <textarea id="comentario" th:name="comentario" required></textarea>
-          <button type="submit">Send</button>
+          <label for="comment" th:if="${#httpServletRequest.userPrincipal != null}">Coment:</label>
+          <textarea id="comentario" th:name="comentario" th:if="${#httpServletRequest.userPrincipal != null}" required></textarea>
+          <button type="submit" th:if="${#httpServletRequest.userPrincipal != null}">Send</button>
         </form>
         <div class="comments mt-5">
           <div class="comment" th:each="coment: ${comentList}">

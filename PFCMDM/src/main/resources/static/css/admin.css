@@ -2,13 +2,14 @@ body{
 	overflow-x: hidden; 
 }
 
-
+.card h5, .card .card-text{
+	font-size: 30px;
+}
 
 
 
 .card-dash{
 	border-radius: 10px;
-    height: 150px;
     border: none;
 }
 

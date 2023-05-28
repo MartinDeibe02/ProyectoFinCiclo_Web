@@ -21,7 +21,7 @@
     	      } else if (action === 'edit') {
     	        url = '/edit/' + selectedId;
     	      } else if (action === 'delete') {
-    	        url = '/delete/' + selectedId;
+    	        url = '/admin/switchStatus/' + selectedId;
     	      }
     	    }
     	     window.location.href = url;

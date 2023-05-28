@@ -25,4 +25,9 @@ public class BrandServiceImpl implements BrandService{
 		brandRepository.save(brand);
 	}
 
+	@Override
+	public long countBrands() {
+		return brandRepository.count();
+	}
+
 }

@@ -29,8 +29,11 @@
                     </div>
                     <div>
                         <h5 class="card-title">Users</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                        <p class="card-text" th:text="${countUser}"></p>
                     </div>
+                </div>
+                <div class="card-footer bg-c-yellow">
+                    	<p th:text="'Updated: ' + ${updated}"></p>
                 </div>
             </div>
 
@@ -43,8 +46,11 @@
                     </div>
                     <div>
                         <h5 class="card-title">Products</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                        <p class="card-text" th:text="${countProduct}"></p>
                     </div>
+                </div>
+                <div class="card-footer bg-c-yellow">
+                    	<p th:text="'Updated: ' + ${updated}"></p>
                 </div>
             </div>
 
@@ -56,9 +62,12 @@
                         <i class="fas fa-shirt fa-3x"></i>
                     </div>
                     <div>
-                        <h5 class="card-title">Categories</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                        <h5 class="card-title">Brands</h5>
+                        <p class="card-text" th:text="${countBrand}"></p>
                     </div>
+                </div>
+                <div class="card-footer bg-c-yellow">
+                    	<p th:text="'Updated: ' + ${updated}"></p>
                 </div>
             </div>
 
@@ -70,10 +79,13 @@
                         <i class="fas fa-brands fa-product-hunt fa-3x"></i>
                     </div>
                     <div>
-                        <h5 class="card-title">Brands</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
+                        <h5 class="card-title">Orders</h5>
+                        <p class="card-text" th:text="${countPedidos}"></p>
                     </div>
                 </div>
+                <div class="card-footer bg-c-yellow">
+                    	<p th:text="'Updated: ' + ${updated}"></p>
+                    </div>
             </div>
 
         </div>
