@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +61,8 @@ public class AdminController {
 	@Autowired
 	PermisosService permisoService;
 
+	
+	
 	@GetMapping("/users")
 	public String adminUsers(Authentication auth, Model model) {
 		model.addAttribute("users", userService.findUsers());
@@ -207,6 +211,22 @@ public class AdminController {
 		model.addAttribute("countBrand", brandService.countBrands());
 		model.addAttribute("countPedidos", pedidoService.countPedido());
 
+		List<Brand> marcas = brandService.findAllBrands(); // Obtén la lista de marcas que deseas contar
+		Map<String, Integer> brandMap;
+		brandMap = new TreeMap<>();
+		
+		for (Brand marca : marcas) {
+		    long numeroProductos = productService.countByMarca(marca);
+		    System.out.println("Marca: " + marca.getNombre() + ", Número de productos: " + numeroProductos);
+	        brandMap.put(marca.getNombre(), (int) numeroProductos);
+
+		}
+        model.addAttribute("chartData", brandMap);
+
+		System.out.println(brandMap);
+		
+		
+		
 		Date fechaActual = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		String fechaFormateada = dateFormat.format(fechaActual);

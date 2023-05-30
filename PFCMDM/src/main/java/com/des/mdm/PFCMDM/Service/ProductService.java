@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
+import com.des.mdm.PFCMDM.model.Brand;
 import com.des.mdm.PFCMDM.model.Product;
 
 public interface ProductService {
@@ -16,4 +17,5 @@ public interface ProductService {
 	Product findByName(String name);
 	Product findById(int id);
 	long countProds();
+	long countByMarca(Brand marca);
 }

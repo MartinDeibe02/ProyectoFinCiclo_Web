@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.des.mdm.PFCMDM.Service.ProductService;
+import com.des.mdm.PFCMDM.model.Brand;
 import com.des.mdm.PFCMDM.model.Genero;
 import com.des.mdm.PFCMDM.model.Product;
 import com.des.mdm.PFCMDM.repository.ProductRepository;
@@ -104,6 +105,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public long countProds() {
 		return productRepository.count();
+	}
+
+	@Override
+	public long countByMarca(Brand marca) {
+		return productRepository.countByMarca(marca);
 	}
 
 
