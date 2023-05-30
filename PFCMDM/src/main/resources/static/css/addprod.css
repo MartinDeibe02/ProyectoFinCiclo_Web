@@ -13,6 +13,15 @@ label{
 	color:white;
 }
 
+.form-control[readonly]{
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+	color:gray;
+}
+
+
+
 .form-control::placeholder {
   color: d0d0d0;
 }

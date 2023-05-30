@@ -42,7 +42,7 @@ public class DatabaseWebConfig extends WebSecurityConfigurerAdapter{
 													"/detail/**",
 													"/buy").permitAll()
 		.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
-		.antMatchers("/logout", "/saveComent" ).hasAnyAuthority("USER")
+		.antMatchers("/logout", "/saveComent" ).hasAnyAuthority("USER", "ADMIN")
 		.antMatchers("/register","/saveUser").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
 	
 	http.csrf().ignoringAntMatchers("/buy");

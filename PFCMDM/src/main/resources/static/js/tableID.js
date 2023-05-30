@@ -16,10 +16,8 @@
     	    var url = '';
 
     	    if (selectedId !== null) {
-    	      if (action === 'new') {
-    	        url = '/new';
-    	      } else if (action === 'edit') {
-    	        url = '/edit/' + selectedId;
+    	      	if (action === 'edit') {
+    	        url = '/admin/editUser/' + selectedId;
     	      } else if (action === 'delete') {
     	        url = '/admin/switchStatus/' + selectedId;
     	      }

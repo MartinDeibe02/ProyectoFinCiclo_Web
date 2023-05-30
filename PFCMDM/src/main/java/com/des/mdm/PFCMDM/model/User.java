@@ -84,6 +84,16 @@ public class User {
 	public void setEstatus(int estatus) {
 		this.estatus = estatus;
 	}
+	
+	
+
+	public List<Permisos> getPermisos() {
+		return permisos;
+	}
+
+	public void setPermisos(List<Permisos> permisos) {
+		this.permisos = permisos;
+	}
 
 	@Override
 	public String toString() {
