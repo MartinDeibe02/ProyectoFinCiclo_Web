@@ -22,12 +22,12 @@
 
 	<div class="sidebar" th:insert="/fragment/sidebar"></div>
 
-	<div class="content p-5">
+	<div class="content p-5 d-flex flex-column">
 
-		<h2 class="text-white m-5">
-			<i class="fa fa-circle-plus mr-4"></i>Add User
+		<h2 class="text-black align-self-center mb-5">
+			<i class="fa fa-circle-plus m-2"></i>Add User
 		</h2>
-		<form class="formprod p-5" th:action="@{/admin/saveUser}"
+		<form class="formprod p-5 align-self-center" th:action="@{/admin/saveUser}"
 			method="post" enctype="multipart/form-data" th:object="${user}">
 			<input type="hidden" th:field="*{id}" id="id">
 

@@ -29,13 +29,13 @@
 
 	<div class="sidebar" th:insert="/fragment/sidebar"></div>
 
-	<h2 class="text-black pt-5 content ml-5 mt-1">Users Dashboard</h2>
+	<h2 class="title-admin pt-5 content text-center mt-1">USERS DASHBOARD</h2>
 
 	<section class="content row">
 
 
 
-			<div class="col p-5 ml-5 mr-5">
+			<div class="col p-5">
 				<div class="card bg-gradient-green card-dash text-white">
 					<div class="card-body d-flex align-items-center justify-content-between">
 						<div>
@@ -148,25 +148,23 @@
 					<th scope="col">Password</th>
 					<th scope="col">Direction</th>
 					<th scope="col">Phone number</th>
-					<th scope="col">status</th>
+					<th scope="col" class="text-center">status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="user: ${users}">
 					<td scope="row" th:data-id="${user.id}" th:text="${user.nombre}"></td>
-					<td th:text="${user.correo_electronico}"></td>
+					<td class="justify-content-start" th:text="${user.correo_electronico}"></td>
 					<td>***</td>
 					<td th:text="${user.direccion}"></td>
 					<td th:text="${user.telefono}"></td>
-					<td th:text="${user.estatus}"></td>
+					<td class="d-flex justify-content-center">
+					    <div th:class="${user.estatus == 1 ? 'green-circle' : 'red-circle'}"></div>
+					</td>
 
 				</tr>
-
 			</tbody>
 		</table>
-
-
-
 	</section>
 
 
@@ -176,7 +174,7 @@
 
 
 	<script th:inline="javascript">
-    var dataModel = /*[[${chartData}]]*/;
+    var dataModel = /*[[${chartData}]]*/
     $(document).ready(function() {
         google.charts.load('current', {packages : [ 'corechart' ]});
         google.charts.setOnLoadCallback(drawBarChart);

@@ -2,6 +2,11 @@ body{
 	overflow-x: hidden; 
 }
 
+.title-admin{
+	font-family: "NewYork", Courier, monospace;
+	font-weight: bold;
+}
+
 .card h5, .card .card-text, .card i{
 	font-size: 30px;
 	color: black;
@@ -11,6 +16,7 @@ body{
 	color: gray;
 	font-size: 15px;
 }
+
 
 .card-body{
 	padding-left: 50px;
@@ -117,4 +123,21 @@ table {
 
 td{
 	margin-top:10px;
+	text-align: left;
+}
+
+
+.green-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #5cb85c;
+  
+}
+
+.red-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d9534f;
 }
