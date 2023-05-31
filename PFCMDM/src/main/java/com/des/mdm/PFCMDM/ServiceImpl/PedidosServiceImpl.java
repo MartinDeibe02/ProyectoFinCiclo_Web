@@ -1,5 +1,6 @@
 package com.des.mdm.PFCMDM.ServiceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class PedidosServiceImpl implements PedidosService {
 	@Override
 	public long countPedido() {
 		return pedidosrepository.count();
+	}
+
+	@Override
+	public List<Pedidos> findAllPedidos() {
+		return pedidosrepository.findAll();
 	}
 
 

@@ -128,7 +128,7 @@
 			</form>
 		</div>
 
-		<div class="col-12 col-md-7 my-3 d-flex justify-content-around">
+		<div class="col my-3 d-flex justify-content-around">
 			<a th:href="@{/admin/addUser}"><button type="button"
 					class="btn btn-success crud" data-bs-toggle="modal"
 					data-action="new">New</button></a>
@@ -139,7 +139,8 @@
 	</section>
 
 
-	<section class="content row p-5 ml-3">
+	<section class="content row p-5 ml-3 row  justify-content-between">
+	<div class="col-xl-6">
 		<table class="table table-light table-striped table-hover">
 			<thead>
 				<tr>
@@ -158,13 +159,38 @@
 					<td>***</td>
 					<td th:text="${user.direccion}"></td>
 					<td th:text="${user.telefono}"></td>
-					<td class="d-flex justify-content-center">
+					<td class="text-center">
 					    <div th:class="${user.estatus == 1 ? 'green-circle' : 'red-circle'}"></div>
 					</td>
 
 				</tr>
 			</tbody>
 		</table>
+		</div>
+		<div class="col-6">
+		<table class="table table-light table-striped table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Order-Number</th>
+					<th scope="col">Date</th>
+					<th scope="col">Client</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ped: ${pedidos}">
+					<td class="justify-content-start" th:text="${ped.numero_de_orden}"></td>
+					<td class="justify-content-start" th:text="${ped.fecha_de_compra}"></td>
+					<td class="justify-content-start" th:text="${ped.usuario.nombre}"></td>
+					<td>
+						<a >Show</a>
+					</td>
+					
+
+				</tr>
+			</tbody>
+		</table>
+		</div>
 	</section>
 
 

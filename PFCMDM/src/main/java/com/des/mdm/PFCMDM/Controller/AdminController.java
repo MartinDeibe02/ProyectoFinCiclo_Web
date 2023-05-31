@@ -66,6 +66,7 @@ public class AdminController {
 	@GetMapping("/users")
 	public String adminUsers(Authentication auth, Model model) {
 		model.addAttribute("users", userService.findUsers());
+		model.addAttribute("pedidos", pedidoService.findAllPedidos());
 		return "/admin/adminPaneUsers";
 	}
 
