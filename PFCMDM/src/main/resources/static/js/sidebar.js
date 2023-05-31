@@ -1,7 +1,7 @@
 /**
  * 
  */
-         window.onload = function () {
+          window.addEventListener("DOMContentLoaded", function(event) {
             const sidebar = document.querySelector(".sidebar");
             const closeBtn = document.querySelector("#btn");
 
@@ -9,4 +9,4 @@
                 sidebar.classList.toggle("open")
             })
 
-        }
+        });

@@ -2,178 +2,222 @@
 <html>
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" th:href="@{/css/admin.css}">
-    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
-
+<meta charset=UTF-8>
+<title>Admin pane</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/02506372be.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/admin.css}">
+<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
 
-<div class="sidebar" th:insert="/fragment/sidebar"></div>
+
+	<div class="sidebar" th:insert="/fragment/sidebar"></div>
+	<script th:src="@{/js/sidebar.js}"></script>
+
+	<h2 class="title-admin pt-5 content text-center mt-1">USERS DASHBOARD</h2>
+
+	<section class="content row">
+
+
+
+			<div class="col p-5">
+				<div class="card bg-gradient-green card-dash text-white">
+					<div class="card-body d-flex align-items-center justify-content-between">
+						<div>
+							<h5 class="card-title">Users</h5>
+							<p class="card-text" th:text="${countUser}"></p>
+						</div>
+						<div class="mr-4">
+							      <i class="fa fa-user"></i>
+						</div>
+					</div>
+					<div class="card-footer bg-c-yellow-1">
+						<p th:text="'Updated: ' + ${updated}"></p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col p-5">
+				<div class="card bg-gradient-pink card-dash text-white">
+					<div class="card-body d-flex align-items-center justify-content-between">
+						<div>
+							<h5 class="card-title">Products</h5>
+							<p class="card-text" th:text="${countProduct}"></p>
+						</div>
+						<div class="mr-4">
+							<i class="fa-thin fa-poo-storm"></i>
+						</div>
+					</div>
+					<div class="card-footer bg-c-green">
+						<p th:text="'Updated: ' + ${updated}"></p>
+					</div>
+				</div>
+			</div>
+			<div class="col p-5">
+				<div class="card bg-gradient-blue card-dash text-white">
+					<div class="card-body d-flex align-items-center justify-content-between">
+						
+						<div>
+							<h5 class="card-title">Brands</h5>
+							<p class="card-text" th:text="${countBrand}"></p>
+						</div>
+						<div class="mr-4">
+							<i class="fas fa-shirt"></i>
+						</div>
+					</div>
+					<div class="card-footer bg-c-blue">
+						<p th:text="'Updated: ' + ${updated}"></p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col p-5">
+				<div class="card bg-gradient-orange card-dash text-white">
+					<div class="card-body d-flex align-items-center justify-content-between">
+						
+						<div>
+							<h5 class="card-title">Orders</h5>
+							<p class="card-text" th:text="${countPedidos}"></p>
+						</div>
+						<div class="mr-4">
+							<i class="fas fa-brands fa-product-hunt fa-3x"></i>
+						</div>
+					</div>
+					<div class="card-footer bg-c-pink">
+						<p th:text="'Updated: ' + ${updated}"></p>
+					</div>
+				</div>
+
+			</div>
+	</section>
 	
-    <h2 class="text-white content ml-5 mt-1">Brands Dashboard</h2>
-
-    <section class="content row">
-        <div class="col p-5">
-            <div class="card bg-gradient-green card-dash text-white">
-                <div class="card-body d-flex align-items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-user fa-3x"></i>
-                    </div>
-                    <div>
-                        <h5 class="card-title">Users</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col p-5">
-            <div class="card bg-gradient-pink card-dash text-white">
-                <div class="card-body d-flex align-items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-box fa-3x"></i>
-                    </div>
-                    <div>
-                        <h5 class="card-title">Products</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col p-5">
-            <div class="card bg-gradient-blue card-dash text-white">
-                <div class="card-body d-flex align-items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-shirt fa-3x"></i>
-                    </div>
-                    <div>
-                        <h5 class="card-title">Categories</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col p-5">
-            <div class="card bg-gradient-orange card-dash text-white">
-                <div class="card-body d-flex align-items-center">
-                    <div class="mr-4">
-                        <i class="fas fa-brands fa-product-hunt fa-3x"></i>
-                    </div>
-                    <div>
-                        <h5 class="card-title">Brands</h5>
-                        <p class="card-text">Gestiona tus usuarios aquí.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
 	
-<section class="content ml-3 row my-3">
-  <div class="col-5 col-md-5 mx-auto d-flex">
-    <form action="" class="align-self-center">
-      <input type="text">
-      <button class="buton-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
-  </div>
-
-  <div class="col-12 col-md-7 my-3 d-flex justify-content-around">
-      <button type="button" class="btn btn-success crud" data-bs-toggle="modal">New</button>
-      <button type="button" class="btn btn-warning crud">Edit</button>
-      <button type="button" class="btn btn-danger crud">Delete</button>
-  </div>
-</section>
-
 	
-    <section class="content row p-5">
-        <table class="table table-dark table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row" data-id="1">1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td scope="row" data-id="2">2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Larry the Bird</td>
-                    <td>Test</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+	
+	<section class="content row justify-content-center" >
+			<div class="col-lg-7 chart mt-5" id="donutchart" style="height: 200px;"></div>
+			<div class="col-4 mt-5 ml-5 chart" id="piechart" style="width: 900px; height: 200px;"></div>
+	</section>
+	
+	
+	
+	
+
+	<section class="content ml-5 mt-5 row my-3">
+		<div class="col-5 col-md-5 mx-auto d-flex">
+			<form action="" class="align-self-center">
+				<input type="text">
+				<button class="buton-search" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+		</div>
+
+		<div class="col my-3 d-flex justify-content-around">
+			<a th:href="@{/admin/addProduct}"><button type="button"
+					class="btn btn-success crud" data-bs-toggle="modal"
+					data-action="new">New</button></a>
+			<button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
+			<button type="button" class="btn btn-danger crud"
+				data-action="delete">Delete</button>
+		</div>
+	</section>
+
+
+	<section class="content row p-5 ml-3 justify-content-between">
+		<table class="table table-light table-striped table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="brand: ${brands}">
+					<td scope="row" th:data-id="${brand.id}" th:text="${brand.nombre}"></td>
+					<td class="justify-content-start" th:text="${brand.descripcion}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+	
+	</section>
+
+
+
+	<script th:src="@{/js/tableJs/tableIDBrand.js}"></script>
+
+
+	<script th:inline="javascript">
+    var dataModel = /*[[${chartData}]]*/
+    $(document).ready(function() {
+        google.charts.load('current', {packages : [ 'corechart' ]});
+        google.charts.setOnLoadCallback(drawBarChart);
+        google.charts.setOnLoadCallback(drawPieChart);
+        
+        window.onload = resize;
+        window.onresize = resize;
+    });
+        function resize () {
+        	google.charts.setOnLoadCallback(drawBarChart);
+            google.charts.setOnLoadCallback(drawPieChart);
+        }
 
         
-       
-    </section>
-
-
-
-	<script th:src="@{/js/sidebar.js}"></script>
-	
-    <script type="text/javascript">
-
-
-        $(document).ready(function() {
-            $('.table tbody tr').click(function () {
-                var id = $(this).find('td').data('id');
-                var tds = $(this).find('td');
-                var url = '/delete/' + id;
-                $('.eliminar').attr('href', url);
-                $('tr').removeClass('table-dark');
-                $(this).addClass('table-dark');
-                tds.addClass('texto-negro');
-
-                $('.table tbody tr:not(.table-dark)').find('td').removeClass('texto-negro');
-                
-                console.log(url);
-            });
+    
+    
+    function drawBarChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Brands');
+        data.addColumn('number', 'Products');
+        Object.keys(dataModel).forEach(function(key) {
+            data.addRow([ key, dataModel[key] ]);
         });
-
-
+        var options = {
+           	pieHole: 0.4,
+           	legend: {position: 'top'},
+            colors: ['#3366cc', '#dc3912', '#ff9900', '#109618', '#990099', '#ff6600', '#0099c6', '#dd4477', '#66aa00', '#b82e2e']
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+    
+    
+    function drawPieChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Brands');
+        data.addColumn('number', 'Products');
+        Object.keys(dataModel).forEach(function(key) {
+            data.addRow([ key, dataModel[key] ]);
+        });
+        var options = {
+            title : 'Nº of products by Brand',
+           	pieHole: 0.4,
+            colors: ['#3366cc', '#dc3912', '#ff9900', '#109618', '#990099', '#ff6600', '#0099c6', '#dd4477', '#66aa00', '#b82e2e']
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+   
     </script>
+
 </body>
 
 </html>

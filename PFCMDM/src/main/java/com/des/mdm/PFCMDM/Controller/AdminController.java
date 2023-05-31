@@ -135,12 +135,26 @@ public class AdminController {
 	
 
 	@GetMapping("/products")
-	public String adminProducts() {
-		return "/admin/adminPaneUsers";
+	public String adminProducts(Model model) {
+		model.addAttribute("products", productService.findProds());
+		
+		return "/admin/adminPaneProducts";
 	}
+	
+	@GetMapping("/editProd/{id}")
+	public String editProd(Model model, Brand brand, @PathVariable("id") int id) {
+		model.addAttribute("generos", Genero.values());
+		model.addAttribute("brands", brandService.findAllBrands());
+		model.addAttribute("product", productService.findById(id));
+		
+		return "/admin/addProduct";
+	}
+	
 
 	@GetMapping("/brands")
-	public String adminBrands() {
+	public String adminBrands(Model model) {
+		model.addAttribute("brands", brandService.findAllBrands());
+
 		return "/admin/adminPaneBrands";
 	}
 
@@ -153,8 +167,7 @@ public class AdminController {
 	public String addProduct(Product producto, Brand brand, Model model) {
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("brands", brandService.findAllBrands());
-		model.addAttribute("producto", producto);
-		model.addAttribute("brand", brand);
+		
 
 		return "/admin/addProduct";
 	}
@@ -181,22 +194,54 @@ public class AdminController {
 			}
 			redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
 		} else {
-			String url = uploadToCloudinary(multipartFile);
-			producto.setProduct_image(url);
-			System.out.println(producto);
-			productService.saveProduct(producto);
-			redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+			if(producto.getId()==null) {
+				if(multipartFile.getSize() != 0){
+					System.out.println("xddd");
+					String url = uploadToCloudinary(multipartFile);
+					producto.setProduct_image(url);
+					System.out.println(producto);
+					productService.saveProduct(producto);
+					redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+				}else {
+					redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
+				}
+			}else {
+			Product product = productService.findById(producto.getId());
+			if(multipartFile.getSize() != 0) {
+				System.out.println("xddd");
+				String url = uploadToCloudinary(multipartFile);
+				producto.setProduct_image(url);
+				System.out.println(producto);
+				productService.saveProduct(producto);
+				redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+				
+			}else if(product.getProduct_image() != null){
+				producto.setProduct_image(product.getProduct_image());
+				productService.saveProduct(producto);
+				redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+			}else {
+				redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
+			}
 		}
-		return "redirect:/admin/add";
+			}
+		return "redirect:/admin/addProduct";
 
 	}
 
 	@PostMapping("/saveBrand")
 	public String saveCat(Brand brand) {
 		brandService.saveBrand(brand);
-		return "redirect:/admin/add";
+		return "redirect:/admin/addProduct";
 	}
 
+	@GetMapping("/editBrand/{id}")
+	public String editBrand(@PathVariable("id") int id, Model model, Brand brand, Product producto) {
+		model.addAttribute("generos", Genero.values());
+		model.addAttribute("brands", brandService.findAllBrands());
+		model.addAttribute("brand", brandService.findById(id));
+		return "/admin/addProduct";
+	}
+	
 	private String uploadToCloudinary(MultipartFile multipartFile) throws IOException {
 		Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap("cloud_name", "daolhlyb6", "api_key",
 				"853471969531956", "api_secret", "yQIl1DHYJbh0Gm3td56uD7d66ts", "secure", true));

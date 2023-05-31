@@ -17,10 +17,11 @@
 <body>
     <div class="sidebar" th:insert="/fragment/sidebar"></div>
 
-    <div class="content p-5">
+    <div class="content p-5 d-flex flex-column">
 
-        <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
-        <form class="formprod p-5" th:action="@{/admin/saveProd}" method="post" enctype="multipart/form-data" th:object="${producto}">
+        <h2 class="text-black text-center m-5"><i class="fa fa-circle-plus mr-4"></i>Add Product</h2>
+        
+        <form class="formprod p-5 align-self-center" th:action="@{/admin/saveProd}" method="post" enctype="multipart/form-data" th:object="${product}">
 
 			<div th:if="${success}" class="alert alert-success" role="alert">
 			    <p th:text="${success}"></p>
@@ -28,7 +29,7 @@
 			<div th:if="${error}" class="alert alert-danger" role="alert">
 			    <p th:text="${error}"></p>
 			</div>           
-            
+			<input type="hidden" th:field="*{id}" id="id">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
@@ -63,27 +64,28 @@
                 </div>
 
             </div>
-            <div class="form-group">
                 <div class="mb-3">
                     <label for="formFile">Image</label>
                     <input type="file" class="form-control-file form-control" name="file" id="archivo" accept=".png">
                 </div>
                 <button type="submit" class="btn btn-primary submit">Add Product</button>
+            
         </form>
-    </div>
     
-    <h2 class="text-white m-5"><i class="fa fa-circle-plus mr-4"></i>Add Brand</h2>
+    <h2 class="text-black m-5 text-center"><i class="fa fa-circle-plus mr-4"></i>Add Brand</h2>
     
 
-    <form class="formprod mt-5 p-5" method="post" th:action="@{/saveBrand}"  th:object="${brand}">
+    <form class="formprod mt-5 p-5 align-self-center" method="post" th:action="@{/admin/saveBrand}"  th:object="${brand}">
+    	<input type="hidden" th:field="*{id}" id="id">
+    
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{nombre}">
+                <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{nombre}" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" id="desciption" placeholder="Description" th:field="*{descripcion}">
+                <input type="text" class="form-control" id="desciption" placeholder="Description" th:field="*{descripcion}" required>
             </div>
         </div>
 
@@ -91,7 +93,7 @@
     </form>
 
 
-
+</div>
 
 
 

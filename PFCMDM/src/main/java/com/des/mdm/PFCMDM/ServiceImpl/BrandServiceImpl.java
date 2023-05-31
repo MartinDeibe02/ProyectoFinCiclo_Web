@@ -1,6 +1,7 @@
 package com.des.mdm.PFCMDM.ServiceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,16 @@ public class BrandServiceImpl implements BrandService{
 	@Override
 	public long countBrands() {
 		return brandRepository.count();
+	}
+
+	@Override
+	public Brand findById(int id) {
+		Optional<Brand> brandOp = brandRepository.findById(id);
+		
+		if(brandOp.isPresent()) {
+			return brandOp.get();
+		}
+		return null;
 	}
 
 }

@@ -10,4 +10,5 @@ public interface BrandService {
 	List<Brand> findAllBrands();
 	void saveBrand(Brand brand);
 	long countBrands();
+	Brand findById(int id);
 }
