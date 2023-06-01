@@ -61,7 +61,6 @@ public class ProductController {
 		model.addAttribute("productos", productosPaginados.getContent());
 		model.addAttribute("actualPage", page);
 		model.addAttribute("totalPage", productosPaginados.getTotalPages());
-		model.addAttribute("title", "MEN");
 
 	
 		
@@ -79,7 +78,6 @@ public class ProductController {
 		model.addAttribute("productos", productosPaginados.getContent());
 		model.addAttribute("actualPage", page);
 		model.addAttribute("totalPage", productosPaginados.getTotalPages());
-		model.addAttribute("title", "MEN");
 
 
 		

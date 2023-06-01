@@ -196,7 +196,6 @@ public class AdminController {
 		} else {
 			if(producto.getId()==null) {
 				if(multipartFile.getSize() != 0){
-					System.out.println("xddd");
 					String url = uploadToCloudinary(multipartFile);
 					producto.setProduct_image(url);
 					System.out.println(producto);
@@ -208,7 +207,6 @@ public class AdminController {
 			}else {
 			Product product = productService.findById(producto.getId());
 			if(multipartFile.getSize() != 0) {
-				System.out.println("xddd");
 				String url = uploadToCloudinary(multipartFile);
 				producto.setProduct_image(url);
 				System.out.println(producto);
