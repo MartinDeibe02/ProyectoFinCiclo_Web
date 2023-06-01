@@ -8,4 +8,6 @@ public interface PedidosService {
 	void savePedido(Pedidos pedidos);
 	long countPedido();
 	List<Pedidos> findAllPedidos();
+	Pedidos findById(int id);
+	
 }

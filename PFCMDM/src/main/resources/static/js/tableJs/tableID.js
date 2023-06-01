@@ -1,10 +1,10 @@
 /**
  * 
  */
- $(document).ready(function() {
+  window.addEventListener("DOMContentLoaded", function(event) {
     	  var selectedId = null;
 
-    	  $('.table tbody tr').click(function () {
+    	  $('.tablejs tbody tr').click(function () {
     		$('.table tbody tr').removeClass('table-dark');
     	    selectedId = $(this).find('td').data('id');
     	    $(this).addClass('table-dark');

@@ -31,5 +31,11 @@ public class PedidosServiceImpl implements PedidosService {
 		return pedidosrepository.findAll();
 	}
 
+	@Override
+	public Pedidos findById(int id) {
+		Optional<Pedidos> ped =  pedidosrepository.findById(id);
+		return ped.get();
+	}
+
 
 }

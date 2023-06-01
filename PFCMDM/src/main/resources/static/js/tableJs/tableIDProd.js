@@ -1,8 +1,8 @@
 /**
  * 
  */
- $(document).ready(function() {
-    	  var selectedId = null;
+ window.addEventListener("DOMContentLoaded", function(event) {
+	     	  var selectedId = null;
 
     	  $('.table tbody tr').click(function () {
     		$('.table tbody tr').removeClass('table-dark');
