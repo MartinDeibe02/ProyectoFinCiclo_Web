@@ -11,4 +11,5 @@ public interface BrandService {
 	void saveBrand(Brand brand);
 	long countBrands();
 	Brand findById(int id);
+	void deleteBrand(int id);
 }

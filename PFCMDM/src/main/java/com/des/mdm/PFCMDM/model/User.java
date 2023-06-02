@@ -27,7 +27,7 @@ public class User {
 	private String direccion;
 	private String telefono;
 	private int estatus;
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Usuarios_permiso", 
     joinColumns = @JoinColumn (name= "idusuario"), //U mayuscula
     inverseJoinColumns = @JoinColumn(name = "idpermiso"))

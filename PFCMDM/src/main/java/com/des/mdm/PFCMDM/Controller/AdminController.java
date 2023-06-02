@@ -3,6 +3,7 @@ package com.des.mdm.PFCMDM.Controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -61,7 +63,6 @@ public class AdminController {
 	@Autowired
 	PermisosService permisoService;
 
-	
 	
 	@GetMapping("/users")
 	public String adminUsers(Authentication auth, Model model) {
@@ -240,6 +241,18 @@ public class AdminController {
 		return "/admin/addProduct";
 	}
 	
+	@GetMapping("/deleteProd/{id}")
+	public String deleteProd(@PathVariable("id") int id) {
+		productService.deleteProd(id);
+		return "redirect:/admin/products";
+	}
+	
+	@GetMapping("/deleteBrand/{id}")
+	public String deleteBrand(@PathVariable("id") int id) {
+		brandService.deleteBrand(id);
+		return "redirect:/admin/products";
+	}
+	
 	private String uploadToCloudinary(MultipartFile multipartFile) throws IOException {
 		Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap("cloud_name", "daolhlyb6", "api_key",
 				"853471969531956", "api_secret", "yQIl1DHYJbh0Gm3td56uD7d66ts", "secure", true));
@@ -255,7 +268,7 @@ public class AdminController {
 		model.addAttribute("countBrand", brandService.countBrands());
 		model.addAttribute("countPedidos", pedidoService.countPedido());
 
-		List<Brand> marcas = brandService.findAllBrands(); // Obtén la lista de marcas que deseas contar
+		List<Brand> marcas = brandService.findAllBrands();
 		Map<String, Integer> brandMap;
 		brandMap = new TreeMap<>();
 		
@@ -267,8 +280,22 @@ public class AdminController {
 		}
         model.addAttribute("chartData", brandMap);
 
-		System.out.println(brandMap);
-		
+        
+        
+        List<User> usuarios = userService.findUsers();
+        Map<String, Integer> userPedidoMap = new TreeMap<>();
+        for (User usuario : usuarios) {
+            long numeroPedidos = pedidoService.countByUser(usuario);
+            userPedidoMap.put(usuario.getNombre(), (int) numeroPedidos);
+        }
+
+        userPedidoMap.entrySet().stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+            .limit(10)
+            .forEach(entry -> userPedidoMap.put(entry.getKey(), entry.getValue()));
+
+        model.addAttribute("chartDataUsers", userPedidoMap);
+        System.out.println("xd " +userPedidoMap);
 		
 		
 		Date fechaActual = new Date();
@@ -276,4 +303,7 @@ public class AdminController {
 		String fechaFormateada = dateFormat.format(fechaActual);
 		model.addAttribute("updated", fechaFormateada);
 	}
+	
+	
+
 }

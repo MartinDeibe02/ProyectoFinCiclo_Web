@@ -112,6 +112,11 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.countByMarca(marca);
 	}
 
+	@Override
+	public void deleteProd(int prod) {
+		productRepository.deleteById(prod);
+	}
+
 
 
 }

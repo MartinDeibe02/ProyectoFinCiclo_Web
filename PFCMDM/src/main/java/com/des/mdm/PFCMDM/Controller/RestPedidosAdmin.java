@@ -27,7 +27,19 @@ public class RestPedidosAdmin {
 	    List<Productos_pedidos> pedido = prodsPedidoService.findByIdPed(idPedido);
         List<ProductoPedidoDTO> productoPedidoDTOs = new ArrayList<>();
         int total=0;
+        
+        if(pedido.isEmpty()){
+            ProductoPedidoDTO dto = new ProductoPedidoDTO();
+        	dto.setNombreProducto("Empty order or deleted products");
+            productoPedidoDTOs.add(dto);
+
+        }{
+        
 	    for (Productos_pedidos productoPedido : pedido) {
+	    	System.out.println(productoPedido);
+	    	
+
+	    	
             ProductoPedidoDTO dto = new ProductoPedidoDTO();
             dto.setId(productoPedido.getId());
             dto.setNombreProducto(productoPedido.getProduct().getNombre());
@@ -38,7 +50,7 @@ public class RestPedidosAdmin {
             productoPedidoDTOs.add(dto);
             
         }
-	    System.out.println(productoPedidoDTOs);
+	    }
 
         return productoPedidoDTOs;
 	}

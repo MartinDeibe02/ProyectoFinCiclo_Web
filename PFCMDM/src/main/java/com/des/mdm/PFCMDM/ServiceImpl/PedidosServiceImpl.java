@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.des.mdm.PFCMDM.Service.PedidosService;
 import com.des.mdm.PFCMDM.model.Pedidos;
+import com.des.mdm.PFCMDM.model.User;
 import com.des.mdm.PFCMDM.repository.PedidosRepository;
 
 @Service
@@ -35,6 +36,11 @@ public class PedidosServiceImpl implements PedidosService {
 	public Pedidos findById(int id) {
 		Optional<Pedidos> ped =  pedidosrepository.findById(id);
 		return ped.get();
+	}
+
+	@Override
+	public long countByUser(User user) {
+		return pedidosrepository.countByUsuario(user);
 	}
 
 

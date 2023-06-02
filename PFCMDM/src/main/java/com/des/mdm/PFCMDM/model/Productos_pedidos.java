@@ -1,5 +1,6 @@
 package com.des.mdm.PFCMDM.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;

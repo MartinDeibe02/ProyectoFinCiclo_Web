@@ -18,4 +18,5 @@ public interface ProductService {
 	Product findById(int id);
 	long countProds();
 	long countByMarca(Brand marca);
+	void deleteProd(int prod);
 }
