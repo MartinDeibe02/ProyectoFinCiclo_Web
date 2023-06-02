@@ -295,7 +295,6 @@ public class AdminController {
             .forEach(entry -> userPedidoMap.put(entry.getKey(), entry.getValue()));
 
         model.addAttribute("chartDataUsers", userPedidoMap);
-        System.out.println("xd " +userPedidoMap);
 		
 		
 		Date fechaActual = new Date();
