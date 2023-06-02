@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.des.mdm.PFCMDM.Service.UserService;
@@ -50,6 +51,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public long countUsers() {
 		return userRepository.count();
+	}
+
+	@Override
+	public List<User> buscarByExample(Example<User> example) {
+		return userRepository.findAll(example);
 	}
 	
 	

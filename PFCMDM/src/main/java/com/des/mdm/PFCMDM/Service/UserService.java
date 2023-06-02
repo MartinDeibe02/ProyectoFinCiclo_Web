@@ -2,6 +2,8 @@ package com.des.mdm.PFCMDM.Service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Example;
+
 import com.des.mdm.PFCMDM.model.User;
 
 public interface UserService {
@@ -10,4 +12,6 @@ public interface UserService {
 	User findUser(String name);
 	User findById(int id);
 	long countUsers();
+	List<User> buscarByExample(Example<User> example);
+
 }

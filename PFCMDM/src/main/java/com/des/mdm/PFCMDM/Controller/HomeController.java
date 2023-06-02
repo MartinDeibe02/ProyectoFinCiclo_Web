@@ -46,6 +46,10 @@ public class HomeController {
 		return "brands";
 	}
 	
+	@GetMapping("/error")
+	public String error() {
+		return "error";
+	}
 
 
 	@ModelAttribute

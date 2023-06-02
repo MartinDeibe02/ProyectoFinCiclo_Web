@@ -12,6 +12,8 @@ import java.util.TreeMap;
 
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -68,6 +70,8 @@ public class AdminController {
 	public String adminUsers(Authentication auth, Model model) {
 		model.addAttribute("users", userService.findUsers());
 		model.addAttribute("pedidos", pedidoService.findAllPedidos());
+		model.addAttribute("search", new User());
+
 		return "/admin/adminPaneUsers";
 	}
 
@@ -302,6 +306,22 @@ public class AdminController {
 		String fechaFormateada = dateFormat.format(fechaActual);
 		model.addAttribute("updated", fechaFormateada);
 	}
+	
+	@GetMapping("/search")
+	public String search(@ModelAttribute("search") User vacante, Model model) {
+		System.out.println("Buscando por " + vacante);
+		
+		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("nombre", ExampleMatcher.GenericPropertyMatchers.contains());
+		System.out.println(matcher);
+		Example<User> example = Example.of(vacante, matcher);
+		List<User> lista = userService.buscarByExample(example);
+		System.out.println("AAAAA" + lista);
+		model.addAttribute("users",lista);
+		model.addAttribute("pedidos", pedidoService.findAllPedidos());
+		return "/admin/adminPaneUsers";
+	}
+
+
 	
 	
 
