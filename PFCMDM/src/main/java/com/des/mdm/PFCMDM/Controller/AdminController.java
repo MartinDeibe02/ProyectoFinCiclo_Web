@@ -308,15 +308,9 @@ public class AdminController {
 	}
 	
 	@GetMapping("/search")
-	public String search(@ModelAttribute("search") User vacante, Model model) {
-		System.out.println("Buscando por " + vacante);
-		
-		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("nombre", ExampleMatcher.GenericPropertyMatchers.contains());
-		System.out.println(matcher);
-		Example<User> example = Example.of(vacante, matcher);
-		List<User> lista = userService.buscarByExample(example);
-		System.out.println("AAAAA" + lista);
-		model.addAttribute("users",lista);
+	public String search(@RequestParam("nombre") String parteDelNombre, Model model) {
+        List<User> usuarios = userService.findUserContaining(parteDelNombre);
+		model.addAttribute("users",usuarios);
 		model.addAttribute("pedidos", pedidoService.findAllPedidos());
 		return "/admin/adminPaneUsers";
 	}

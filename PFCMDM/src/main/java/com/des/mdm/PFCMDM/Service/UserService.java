@@ -12,6 +12,6 @@ public interface UserService {
 	User findUser(String name);
 	User findById(int id);
 	long countUsers();
-	List<User> buscarByExample(Example<User> example);
+	List<User> findUserContaining(String example);
 
 }

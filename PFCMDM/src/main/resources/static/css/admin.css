@@ -54,7 +54,7 @@ body{
 }
 
 .crud{
-	width: 50%;
+	width: 50px !important;
 }
 
 .texto-negro{
@@ -91,6 +91,7 @@ input{
 	border-bottom: 1px solid black;
 	border-radius: 10px;
 	color: white;
+	padding-left: 10px;
 }
 
 input:focus {

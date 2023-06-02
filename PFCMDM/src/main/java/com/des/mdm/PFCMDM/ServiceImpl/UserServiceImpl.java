@@ -54,9 +54,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> buscarByExample(Example<User> example) {
-		return userRepository.findAll(example);
+	public List<User> findUserContaining(String example) {
+		return userRepository.findByNombreContaining(example);
 	}
+
+
 	
 	
 }
