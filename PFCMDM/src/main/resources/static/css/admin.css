@@ -189,9 +189,15 @@ td{
 .modal-div img{
 	position:relative;
 	
- width: 10em; /* La imagen se ajustará al ancho máximo del contenedor */
+ width: 10em;
   height: 10em;
 }
+
+
+.showm{
+	cursor:pointer;
+}
+
 
 
 

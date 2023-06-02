@@ -9,6 +9,10 @@
 			  var modalIdElement = document.getElementById("modalId");
 			  var modalTableBody = document.getElementById("modalTableBody");
 			  
+			  while (modalTableBody.firstChild) {
+				  modalTableBody.removeChild(modalTableBody.firstChild);
+				}
+			  
 			   var xhr = new XMLHttpRequest();
 			   xhr.open("GET", "/api/admin/pedido/" + pedidoId, true);
 			   xhr.onreadystatechange = function() {
