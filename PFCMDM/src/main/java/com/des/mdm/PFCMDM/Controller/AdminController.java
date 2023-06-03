@@ -82,7 +82,7 @@ public class AdminController {
 			for (ObjectError error : result.getAllErrors()) {
 				System.out.println("Ocurrió un error: " + error.getDefaultMessage());
 			}
-			redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
+			redirectAttributes.addFlashAttribute("error", "Errors in the form");
 		} else {
 			if(user.getId()==null) {
 				if(admin) {
@@ -115,7 +115,7 @@ public class AdminController {
 			
 			System.out.println(user);
 			userService.saveUser(user);
-		redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+		redirectAttributes.addFlashAttribute("success", "¡User saved!");
 
 			
 		}
