@@ -117,36 +117,39 @@
 
 
 
-	<section class="content ml-5 mt-5 row my-3">
-		<div class="col-5 col-md-5 mx-auto d-flex">
+	<section class="content p-5 mt-5 row my-3">
+	
+		<div class="col-md-5 mx-auto d-flex mt-5 search-bar">
 			<form class="align-self-center" th:action="@{/admin/search}" method="get">
     			<input type="text" name="nombre" placeholder="Escriba una búsqueda">
     			    <button class="buton-search" type="submit">
 			        <i class="fa-solid fa-magnifying-glass"></i>
 			    </button>
 			</form>
-
-
-
 		</div>
-
-		<div class="col my-3 d-flex justify-content-around">
-			<a th:href="@{/admin/addUser}"><button type="button" class="btn btn-success crud" data-bs-toggle="modal"
-					data-action="new">New</button></a>
-			<button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
-			<button type="button" class="btn btn-danger crud" data-action="delete">Delete</button>
+		
+		
+		
+		<div class="col-xl mt-5">
+			
+		
+			<div class="d-flex justify-content-around" style="width: 100%;">
+			  <a th:href="@{/admin/addUser}" class="btn btn-success">New</a>
+			  <button type="button" class="btn btn-warning " data-action="edit">Edit</button>
+			  <button type="button" class="btn  btn-danger " data-action="delete">Edit</button>
+			</div>
+		
 		</div>
 	</section>
 
 
-	<section class="content row p-5 ml-3 row  justify-content-between">
-		<div class="col-xl-6">
+	<section class="content row pl-5 pr-5 ml-3">
+		<div class="col-xl mb-5" >
 			<table class="table tablejs table-light table-striped table-hover">
 				<thead>
 					<tr>
 						<th scope="col">Name</th>
 						<th scope="col">Email</th>
-						<th scope="col">Password</th>
 						<th scope="col">Direction</th>
 						<th scope="col">Phone number</th>
 						<th scope="col" class="text-center">status</th>
@@ -156,7 +159,6 @@
 					<tr th:each="user: ${users}" class="trjs">
 						<td scope="row" th:data-id="${user.id}" th:text="${user.nombre}"></td>
 						<td class="justify-content-start" th:text="${user.correo_electronico}"></td>
-						<td>***</td>
 						<td th:text="${user.direccion}"></td>
 						<td th:text="${user.telefono}"></td>
 						<td class="text-center">
@@ -167,7 +169,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-6">
+		<div class="col-xl">
 			<table class="table table-light table-striped table-hover">
 				<thead>
 					<tr>

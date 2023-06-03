@@ -1,5 +1,8 @@
 body{
-	overflow-x: hidden; 
+
+	  min-width: 900px;
+	  overflow-x: hidden;
+
 }
 
 .title-admin{
@@ -53,9 +56,8 @@ body{
     background: linear-gradient(to right, #a86008, #ffba56);
 }
 
-.crud{
-	width: 50px !important;
-}
+
+
 
 .texto-negro{
 	color: black;
@@ -78,9 +80,6 @@ body{
 		background-color: gray;
 }
 
-.crud{
-	width: 200px;
-}
 
 input{
 	height: 100%;
@@ -92,6 +91,14 @@ input{
 	border-radius: 10px;
 	color: white;
 	padding-left: 10px;
+}
+
+.btn{
+	width: 200px;
+}
+
+.search-bar{
+	margin-left:20px !important;
 }
 
 input:focus {
@@ -109,15 +116,22 @@ form{
 	border-radius: 10px;
 }
 
-
-
-table {
-	text-align: center;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.table-container {	
+  max-height: 400px; 
+  overflow-y: scroll;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 10px;
-  overflow: hidden;
+  padding:10px;
+}
+
+
+table {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    table-layout: auto;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-radius: 10px;
 }
 
 
@@ -199,6 +213,12 @@ td{
 	cursor:pointer;
 }
 
+
+@media (max-width: 850px) {
+  table {
+    overflow-x: auto;
+  }
+}
 
 
 
