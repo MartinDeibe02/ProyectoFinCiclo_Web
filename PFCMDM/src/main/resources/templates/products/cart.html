@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="ISO-8859-1">
+	<meta charset=UTF-8>
     <title>Insert title here</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -12,6 +12,8 @@
     <link rel="stylesheet" th:href="@{/css/products/cart.css}">
         <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
     
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +45,7 @@
 					    </button>
 					    <div class="dropdown-menu" aria-labelledby="profileDropdown">
 						  <a class="dropdown-item" th:href="@{/admin/users}" th:if="${#httpServletRequest.userPrincipal != null}" sec:authorize="hasAuthority('ADMIN')">Panel de Admin</a>
-					      <a class="dropdown-item" th:href="@{/test/logout}" th:if="${#httpServletRequest.userPrincipal != null}">Cerrar sesión</a>
+					      <a class="dropdown-item" th:href="@{/test/logout}" th:if="${#httpServletRequest.userPrincipal != null}">Cerrar sesiÃ³n</a>
 					      <a class="dropdown-item" th:href="@{/login}" th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</a>
 					      <a class="dropdown-item" th:href="@{/register}" th:unless="${#httpServletRequest.userPrincipal != null}">Registrarse</a>
 					    </div>
@@ -56,6 +58,9 @@
     <section class="h-100 h-custom">
         <div class="container py-5">
             <div class="card card-registration card-registration-2">
+            <div th:if="${cbuy}" class="alert alert-success" role="alert">
+				<p th:text="${cbuy}"></p>
+			</div>
                 <div class="card-body">
                     <div class="row ">
                         <div class="col-lg-8">
@@ -154,6 +159,7 @@
     </section>
     <footer th:insert="/fragment/footer"></footer>
 
+		
 </body>
 
 </html>

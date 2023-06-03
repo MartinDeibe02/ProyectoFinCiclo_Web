@@ -41,9 +41,9 @@ public class HomeController {
 		return "homepage";
 	}
 	
-	@GetMapping("/log")
+	@GetMapping("/about")
 	public String login() {
-		return "brands";
+		return "aboutUs";
 	}
 	
 	@GetMapping("/error")

@@ -18,6 +18,8 @@
         <div class="row login_pane">
             <div class=" mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Log In</h2>
+               
+                
                 <form th:action="@{/login}" method="post">
                 <div th:if="${suc}" class="alert alert-success" role="alert">
 				    <p th:text="${suc}"></p>
@@ -28,6 +30,10 @@
                     <input class="form-text" type="password" name="password" id="">
                     <button class="log-button" type="submit">Log In</button>
                 </form>
+                 
+                <div class="alert text-center" th:if="${param.error}" style="color:red;">
+                	Invalid username or password
+                </div>
                 <a class="align-self-start register" th:href="@{/register}">Not registered?</a>
             </div>
             <div class="col-md img-form">

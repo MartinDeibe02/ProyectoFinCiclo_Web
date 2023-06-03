@@ -40,6 +40,7 @@ public class DatabaseWebConfig extends WebSecurityConfigurerAdapter{
 													"/login",
 													"/register",
 													"/detail/**",
+													"/about",
 													"/buy").permitAll()
 		.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
 		.antMatchers("/logout", "/saveComent" ).hasAnyAuthority("USER", "ADMIN")

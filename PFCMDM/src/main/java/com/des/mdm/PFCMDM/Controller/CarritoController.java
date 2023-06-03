@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.des.mdm.PFCMDM.Service.PedidosService;
 import com.des.mdm.PFCMDM.Service.Productos_pedidosService;
@@ -39,7 +42,7 @@ public class CarritoController {
 	}
 	
 	@GetMapping("/completeCart")
-	public String completeCart(Authentication authentication) {
+	public String completeCart(Authentication authentication, HttpSession session, RedirectAttributes redirect) {
 		Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formatedDate = dateFormat.format(date);
@@ -59,7 +62,10 @@ public class CarritoController {
 			prodsPedService.savePedProd(peds);
 		}
 		RestCartController.carrito.clear();
-		
+	    session.setAttribute("compraCompleta", true);
+	    
+	    
+	    redirect.addFlashAttribute("cbuy", "Order Placed");
 		
 		return "redirect:/cart";
 	}

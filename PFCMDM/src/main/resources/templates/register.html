@@ -26,11 +26,11 @@
 			            	<ul>
 			            		<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
 			            	</ul>
-			        </div>  
+			        </div>
+			        <label for="username">Username</label>
+                    <input class="form-text" type="username" name="nombre" th:field="*{nombre}" required>  
                     <label for="email">Email</label>
                     <input class="form-text" type="email" name="email" th:field="*{correo_electronico}" required>
-                    <label for="username">Username</label>
-                    <input class="form-text" type="username" name="nombre" th:field="*{nombre}" required>
                     <label for="password">Password</label>
                     <input class="form-text" type="password" name="contrasena" th:field="*{contrasena}" required>
                     <label for="date">Street</label>
