@@ -2,14 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+	<meta charset=UTF-8>
+    <title>Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/login/register.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+
 </head>
 
 <body>
@@ -21,27 +23,27 @@
             <div class="mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Register</h2>
                 <form th:action="@{/saveUser}" method="post" th:object="${user}">
-		            <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
-			            Por favor corrija los errores del formulario
-			            	<ul>
-			            		<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
-			            	</ul>
-			        </div>
-			        <label for="username">Username</label>
-                    <input class="form-text" type="username" name="nombre" th:field="*{nombre}" required>  
+                    <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
+                        Por favor corrija los errores del formulario
+                        <ul>
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+                        </ul>
+                    </div>
+                    <label for="username">Username</label>
+                    <input class="form-text" type="username" name="nombre" th:field="*{nombre}" required>
                     <label for="email">Email</label>
                     <input class="form-text" type="email" name="email" th:field="*{correo_electronico}" required>
                     <label for="password">Password</label>
                     <input class="form-text" type="password" name="contrasena" th:field="*{contrasena}" required>
-                    <label for="date">Street</label>
+                    <label for="street">Street</label>
                     <input class="form-text" type="text" name="street" th:field="*{direccion}">
-                    <label for="date">Phone</label>
+                    <label for="phone">Phone</label>
                     <input class="form-text" type="tel" name="tel" pattern="^\d+$" th:field="*{telefono}">
                     <button class="log-button" type="submit">Register</button>
                 </form>
                 <a class="align-self-start register" th:href="@{/login}">Log In?</a>
             </div>
-            
+
 
         </div>
     </div>

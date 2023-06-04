@@ -1,3 +1,4 @@
+/* FONDO ERROR*/
 .back{
     background-image: url("/img/login_back.png");
     height: 100vh;
@@ -8,7 +9,7 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
-
+/* ESTILO DIV DE ERROR*/
 .div-cont{
     background-color: white;
     border-radius: 20px;

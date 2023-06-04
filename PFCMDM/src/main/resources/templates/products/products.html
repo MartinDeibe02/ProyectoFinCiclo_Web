@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Products</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
@@ -16,8 +16,9 @@
     <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
-    
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+
+
     <script th:src="@{/js/pagination.js}"></script>
 
 
@@ -35,8 +36,9 @@
                     <div class="card-body text-center mx-auto">
                         <div>
                             <h5 class="card-title font-weight-bold" th:text="${producto.nombre}"></h5>
-                            <p class="card-text" th:text="${producto.precio}"></p>
-                            <a th:href="@{/detail/{name} (name=${producto.nombre})}" class="btn details px-auto">Details</a><br />
+                            <p class="card-text" th:text="${#numbers.formatCurrency(producto.precio)}"></p>
+                            <a th:href="@{/detail/{name} (name=${producto.nombre})}"
+                                class="btn details px-auto">Details</a><br />
                             <button class="btn cart buy" th:data-product-id="${producto.id}">ADD TO CART</button>
                         </div>
                     </div>
@@ -45,22 +47,26 @@
 
         </div>
     </div>
-    
+
     <nav aria-label="Page navigation example" style="display: flex;justify-content: center;">
-	  <ul class="pagination">
-	    <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage - 1})}" th:if="${actualPage > 0}">&lt;&lt;</a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage - 1})}" th:if="${actualPage > 0}">Prev</a></li>
-	    <li class="page-item"><a class="page-link" th:text="${actualPage}"></a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage + 1})}" th:if="${actualPage + 1 < totalPage}">Next</a></li>
-	    <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${totalPage - 1})}" th:if="${actualPage + 1 < totalPage}">&gt;&gt;</a></li>
-	  </ul>
-	</nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage - 1})}"
+                    th:if="${actualPage > 0}">&lt;&lt;</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage - 1})}"
+                    th:if="${actualPage > 0}">Prev</a></li>
+            <li class="page-item"><a class="page-link" th:text="${actualPage}"></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${actualPage + 1})}"
+                    th:if="${actualPage + 1 < totalPage}">Next</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${currentUrl}(page=${totalPage - 1})}"
+                    th:if="${actualPage + 1 < totalPage}">&gt;&gt;</a></li>
+        </ul>
+    </nav>
 
 
     <footer th:insert="/fragment/footer"></footer>
 
     <script th:src="@{/js/home.js}"></script>
-    
+
     <script th:src="@{/js/cart.js}"></script>
 
 </body>

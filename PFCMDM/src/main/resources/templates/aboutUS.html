@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
-    <link rel="stylesheet" th:href="@{/css/about.css}">
-    <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
+  <link rel="stylesheet" th:href="@{/css/about.css}">
+  <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 
 
 </head>
+
 <body>
 
-    <div class="container-fluid head-hero" th:insert="/fragment/hero"></div>
+  <div class="container-fluid head-hero" th:insert="/fragment/hero"></div>
 
-    
-        <div class="container mt-5 mb-5">
-      <div class="row div-1 mb-5">
-        <div class="col-sm-6 d-flex justify-content-center">
-          <img th:src="@{/img/aboutUs/about_img2.png}" alt="Foto de la empresa" class="img-about img-fluid">
-        </div>
-        <div class="col-sm-6 d-flex">
-          <p class="text-center align-self-center text-ab">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.</p>
-        </div>
+
+  <div class="container mt-5 mb-5">
+    <div class="row div-1 mb-5">
+      <div class="col-sm-6 d-flex justify-content-center">
+        <img th:src="@{/img/aboutUs/about_img2.png}" alt="Foto de la empresa" class="img-about img-fluide">
       </div>
-      <div class="row div-1">
-        <div class="col-sm-6 d-flex">
-<p class="text-center align-self-center text-ab">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra justo ac sem bibendum, ut placerat lorem suscipit. Nulla eget ipsum elit. Sed volutpat velit vel metus tincidunt, sed volutpat risus tristique.</p>
-                </div>
-        <div class="col-sm-6 d-flex justify-content-center" >
-          <img th:src="@{/img/aboutUs/about_img1.png}" alt="Imagen de la empresa" class="img-about img-fluid">
-        </div>
+      <div class="col-sm-6 d-flex">
+        <p class="text-center align-self-center text-ab">At Dunk Shop, we are passionate about all things basketball.
+          Whether you're a professional athlete, a dedicated fan, or just starting out, we have everything you need to
+          fuel your love for the game.
+
+          Our carefully curated collection features top-quality basketball equipment, apparel, and accessories from
+          leading brands. From stylish jerseys and comfortable footwear to state-of-the-art training gear, we've got you
+          covered on and off the court.
+
+          But it's not just about the products; it's about the experience. Our knowledgeable and friendly staff are here
+          to provide personalized recommendations, answer your questions, and ensure you find exactly what you're
+          looking for. We take pride in delivering exceptional customer service because your satisfaction is our
+          priority.</p>
       </div>
     </div>
-    
-    
-    <footer th:insert="/fragment/footer"></footer>
+    <div class="row div-1">
+      <div class="col-sm-6 d-flex">
+        <p class="text-center align-self-center text-ab">We believe in fostering a strong basketball community, which is
+          why we organize exciting events, workshops, and tournaments for players of all ages and skill levels. It's an
+          opportunity to connect, learn, and grow together, uniting people through their shared passion for the game.
+
+          Whether you're chasing your dreams of becoming a basketball superstar or simply enjoying the game with
+          friends, Dunk Store is your go-to destination. Join us in celebrating the spirit of basketball and let us be a
+          part of your incredible journey.
+
+          Shop with us today and experience the joy of basketball like never before!</p>
+      </div>
+      <div class="col-sm-6 d-flex justify-content-center">
+        <img th:src="@{/img/aboutUs/about_img1.png}" alt="Imagen de la empresa" class="img-about img-fluide">
+      </div>
+    </div>
+  </div>
+
+
+  <footer th:insert="/fragment/footer"></footer>
+  <script th:src="@{/js/home.js}"></script>
 
 </body>
+
 </html>

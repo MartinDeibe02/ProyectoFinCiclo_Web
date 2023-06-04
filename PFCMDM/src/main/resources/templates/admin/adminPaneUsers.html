@@ -4,6 +4,7 @@
 <head>
 	<meta charset=UTF-8>
 	<title>Admin pane</title>
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -13,8 +14,8 @@
 	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
 	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	
-	
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -118,39 +119,39 @@
 
 
 	<section class="content pl-5 pr-5 mt-5 row my-3">
-	
+
 		<div class="col-md-5 mx-auto d-flex mt-5 search-bar">
 			<form class="align-self-center" th:action="@{/admin/search}" method="get">
-    			<input type="text" name="nombre" placeholder="Search by name">
-    			    <button class="buton-search" type="submit">
-			        <i class="fa-solid fa-magnifying-glass"></i>
-			    </button>
+				<input type="text" name="nombre" placeholder="Search by name">
+				<button class="buton-search" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
 			</form>
 		</div>
-		
-		
-		
+
+
+
 		<div class="col-xl mt-5">
-			
-		
+
+
 			<div class="d-flex justify-content-around" style="width: 100%;">
-			  <a th:href="@{/admin/addUser}" class="btn btn-success">New</a>
-			  <button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
-			  <button type="button" class="btn btn-info crud" data-action="delete">Switch state</button>
+				<a th:href="@{/admin/addUser}" class="btn btn-success">New</a>
+				<button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
+				<button type="button" class="btn btn-info crud" data-action="delete">Switch state</button>
 			</div>
-		
+
 		</div>
 	</section>
-	
+
 	<section class="content p-5 ml-5">
-				<div th:if="${statusP}" class="alert alert-info" role="alert">
-				    <p th:text="${statusP}"></p>
-				</div>
+		<div th:if="${statusP}" class="alert alert-info" role="alert">
+			<p th:text="${statusP}"></p>
+		</div>
 	</section>
 
 
 	<section class="content row pl-5 pr-5 ml-3">
-		<div class="col-xl mb-5" >
+		<div class="col-xl mb-5">
 			<table class="table tablejs table-light table-striped table-hover">
 				<thead>
 					<tr>
@@ -192,7 +193,7 @@
 						<td class="justify-content-start" th:text="${ped.usuario.nombre}"></td>
 						<td>
 							<a class="showm" th:onclick="openModal(this)" th:data-id="${ped.id}">Abrir Modal</a>
-							
+
 						</td>
 
 
@@ -211,16 +212,16 @@
 
 
 	<script th:inline="javascript">
-	var dataModel = /*[[${chartData}]]*/ ' value';
-	var dataModelUsers = /*[[${chartDataUsers}]]*/ ' value';
-	
-			$(document).ready(function () {
-				google.charts.load('current', { packages: ['corechart'] });
-				google.charts.setOnLoadCallback(drawBarChart);
-				google.charts.setOnLoadCallback(drawPieChart);
-				window.onload = resize;
-				window.onresize = resize;
-			});
+		var dataModel = /*[[${chartData}]]*/ ' value';
+		var dataModelUsers = /*[[${chartDataUsers}]]*/ ' value';
+
+		$(document).ready(function () {
+			google.charts.load('current', { packages: ['corechart'] });
+			google.charts.setOnLoadCallback(drawBarChart);
+			google.charts.setOnLoadCallback(drawPieChart);
+			window.onload = resize;
+			window.onresize = resize;
+		});
 		function resize() {
 			google.charts.setOnLoadCallback(drawBarChart);
 			google.charts.setOnLoadCallback(drawPieChart);
@@ -262,42 +263,42 @@
 		}
 
 	</script>
-	
-	  <script th:src="@{/js/PedidosModal.js}"></script>
+
+	<script th:src="@{/js/PedidosModal.js}"></script>
 
 
 </body>
 
-  
-  
-  
-  
-  <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-content">
-        <div class="modal-header d-flex">
-       	 <div class="modal-div d-flex justify-content-center">
-          	<img class="logo-img align-self-center" th:src="@{/img/home_img/logo_black.png}">
-          </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" onclick="closeModal()">&times;</span>
-          </button>
-        </div>
-         <div class="modal-body">
-  <table class="table" >
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-      </tr>
-    </thead>
-    <tbody id="modalTableBody"></tbody>
-  </table>
-</div>
-    
-    <div class="modal-footer">
-    	<h4 class="text-right" id="modalTotal"></h4>
-    </div>
-</div>
+
+
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-content">
+		<div class="modal-header d-flex">
+			<div class="modal-div d-flex justify-content-center">
+				<img class="logo-img align-self-center" th:src="@{/img/home_img/logo_black.png}">
+			</div>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true" onclick="closeModal()">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio</th>
+					</tr>
+				</thead>
+				<tbody id="modalTableBody"></tbody>
+			</table>
+		</div>
+
+		<div class="modal-footer">
+			<h4 class="text-right" id="modalTotal"></h4>
+		</div>
+	</div>
 
 </html>

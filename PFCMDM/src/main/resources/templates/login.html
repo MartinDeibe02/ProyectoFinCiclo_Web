@@ -2,14 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset=UTF-8>
-    <title>Insert title here</title>
+    <meta charset=UTF-8>
+    <title>Log In</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/login/login.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+
 </head>
 
 <body>
@@ -18,21 +20,21 @@
         <div class="row login_pane">
             <div class=" mt-4 mb-4 col-md d-flex flex-column justify-content-center align-items-center">
                 <h2 class="log-title">Log In</h2>
-               
-                
+
+
                 <form th:action="@{/login}" method="post">
-                <div th:if="${suc}" class="alert alert-success" role="alert">
-				    <p th:text="${suc}"></p>
-				</div>  
+                    <div th:if="${suc}" class="alert alert-success" role="alert">
+                        <p th:text="${suc}"></p>
+                    </div>
                     <label for="username">Username</label>
                     <input class="form-text" type="text" name="username" id="">
                     <label for="password">Password</label>
                     <input class="form-text" type="password" name="password" id="">
                     <button class="log-button" type="submit">Log In</button>
                 </form>
-                 
+
                 <div class="alert text-center" th:if="${param.error}" style="color:red;">
-                	Invalid username or password
+                    Invalid username or password
                 </div>
                 <a class="align-self-start register" th:href="@{/register}">Not registered?</a>
             </div>

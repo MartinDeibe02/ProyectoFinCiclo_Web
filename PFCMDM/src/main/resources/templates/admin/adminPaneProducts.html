@@ -2,27 +2,22 @@
 <html>
 
 <head>
-<meta charset=UTF-8>
-<title>Admin pane</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/02506372be.js"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{/css/admin.css}">
-<link rel="stylesheet" th:href="@{/css/sidebar.css}">
-<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
+	<meta charset=UTF-8>
+	<title>Admin pane</title>
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" th:href="@{/css/admin.css}">
+	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -35,106 +30,104 @@
 
 
 
-			<div class="col p-5">
-				<div class="card bg-gradient-green card-dash text-white">
-					<div class="card-body d-flex align-items-center justify-content-between">
-						<div>
-							<h5 class="card-title">Users</h5>
-							<p class="card-text" th:text="${countUser}"></p>
-						</div>
-						<div class="mr-4">
-							      <i class="fa fa-user"></i>
-						</div>
+		<div class="col p-5">
+			<div class="card bg-gradient-green card-dash text-white">
+				<div class="card-body d-flex align-items-center justify-content-between">
+					<div>
+						<h5 class="card-title">Users</h5>
+						<p class="card-text" th:text="${countUser}"></p>
 					</div>
-					<div class="card-footer bg-c-yellow-1">
-						<p th:text="'Updated: ' + ${updated}"></p>
+					<div class="mr-4">
+						<i class="fa fa-user"></i>
 					</div>
 				</div>
+				<div class="card-footer bg-c-yellow-1">
+					<p th:text="'Updated: ' + ${updated}"></p>
+				</div>
+			</div>
 
-			</div>
-			<div class="col p-5">
-				<div class="card bg-gradient-pink card-dash text-white">
-					<div class="card-body d-flex align-items-center justify-content-between">
-						<div>
-							<h5 class="card-title">Products</h5>
-							<p class="card-text" th:text="${countProduct}"></p>
-						</div>
-						<div class="mr-4">
-							<i class="fa-thin fa-poo-storm"></i>
-						</div>
+		</div>
+		<div class="col p-5">
+			<div class="card bg-gradient-pink card-dash text-white">
+				<div class="card-body d-flex align-items-center justify-content-between">
+					<div>
+						<h5 class="card-title">Products</h5>
+						<p class="card-text" th:text="${countProduct}"></p>
 					</div>
-					<div class="card-footer bg-c-green">
-						<p th:text="'Updated: ' + ${updated}"></p>
+					<div class="mr-4">
+						<i class="fa-thin fa-poo-storm"></i>
 					</div>
 				</div>
-			</div>
-			<div class="col p-5">
-				<div class="card bg-gradient-blue card-dash text-white">
-					<div class="card-body d-flex align-items-center justify-content-between">
-						
-						<div>
-							<h5 class="card-title">Brands</h5>
-							<p class="card-text" th:text="${countBrand}"></p>
-						</div>
-						<div class="mr-4">
-							<i class="fas fa-shirt"></i>
-						</div>
-					</div>
-					<div class="card-footer bg-c-blue">
-						<p th:text="'Updated: ' + ${updated}"></p>
-					</div>
+				<div class="card-footer bg-c-green">
+					<p th:text="'Updated: ' + ${updated}"></p>
 				</div>
+			</div>
+		</div>
+		<div class="col p-5">
+			<div class="card bg-gradient-blue card-dash text-white">
+				<div class="card-body d-flex align-items-center justify-content-between">
 
-			</div>
-			<div class="col p-5">
-				<div class="card bg-gradient-orange card-dash text-white">
-					<div class="card-body d-flex align-items-center justify-content-between">
-						
-						<div>
-							<h5 class="card-title">Orders</h5>
-							<p class="card-text" th:text="${countPedidos}"></p>
-						</div>
-						<div class="mr-4">
-							<i class="fas fa-brands fa-product-hunt fa-3x"></i>
-						</div>
+					<div>
+						<h5 class="card-title">Brands</h5>
+						<p class="card-text" th:text="${countBrand}"></p>
 					</div>
-					<div class="card-footer bg-c-pink">
-						<p th:text="'Updated: ' + ${updated}"></p>
+					<div class="mr-4">
+						<i class="fas fa-shirt"></i>
 					</div>
 				</div>
-
+				<div class="card-footer bg-c-blue">
+					<p th:text="'Updated: ' + ${updated}"></p>
+				</div>
 			</div>
+
+		</div>
+		<div class="col p-5">
+			<div class="card bg-gradient-orange card-dash text-white">
+				<div class="card-body d-flex align-items-center justify-content-between">
+
+					<div>
+						<h5 class="card-title">Orders</h5>
+						<p class="card-text" th:text="${countPedidos}"></p>
+					</div>
+					<div class="mr-4">
+						<i class="fas fa-brands fa-product-hunt fa-3x"></i>
+					</div>
+				</div>
+				<div class="card-footer bg-c-pink">
+					<p th:text="'Updated: ' + ${updated}"></p>
+				</div>
+			</div>
+
+		</div>
 	</section>
-	
-	
-	
-	
-	<section class="content row justify-content-center" >
-			<div class="col-lg-7 chart mt-5" id="donutchart" style="height: 200px;"></div>
-			<div class="col-4 mt-5 ml-5 chart" id="piechart" style="width: 900px; height: 200px;"></div>
+
+
+
+
+	<section class="content row justify-content-center">
+		<div class="col-lg-7 chart mt-5" id="donutchart" style="height: 200px;"></div>
+		<div class="col-4 mt-5 ml-5 chart" id="piechart" style="width: 900px; height: 200px;"></div>
 	</section>
-	
-	
-	
-	
+
+
+
+
 
 	<section class="content ml-5 mt-5 row my-3">
 		<div class="col-5 col-md-5 mx-auto d-flex">
 			<form class="align-self-center" th:action="@{/admin/searchProd}" method="get">
-    			<input type="text" name="nombre" placeholder="Search by name">
-    			    <button class="buton-search" type="submit">
-			        <i class="fa-solid fa-magnifying-glass"></i>
-			    </button>
+				<input type="text" name="nombre" placeholder="Search by name">
+				<button class="buton-search" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
 			</form>
 		</div>
 
 		<div class="col my-3 d-flex justify-content-around">
-			<a th:href="@{/admin/addProduct}"><button type="button"
-					class="btn btn-success crud" data-bs-toggle="modal"
+			<a th:href="@{/admin/addProduct}"><button type="button" class="btn btn-success crud" data-bs-toggle="modal"
 					data-action="new">New</button></a>
 			<button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
-			<button type="button" class="btn btn-danger crud"
-				data-action="delete">Delete</button>
+			<button type="button" class="btn btn-danger crud" data-action="delete">Delete</button>
 		</div>
 	</section>
 
@@ -159,13 +152,13 @@
 					<td class="justify-content-start" th:text="${prod.genero}"></td>
 					<td class="justify-content-start" th:text="${prod.marca.nombre}"></td>
 					<td class="text-center">
-					    <i th:if="${prod.featured == 1}" class="fa-solid fa-star"></i>
+						<i th:if="${prod.featured == 1}" class="fa-solid fa-star"></i>
 					</td>
 
 				</tr>
 			</tbody>
 		</table>
-	
+
 	</section>
 
 
@@ -175,16 +168,16 @@
 
 
 	<script th:inline="javascript">
-	var dataModel = /*[[${chartData}]]*/ ' value';
-	var dataModelUsers = /*[[${chartDataUsers}]]*/ ' value';
-	
-			$(document).ready(function () {
-				google.charts.load('current', { packages: ['corechart'] });
-				google.charts.setOnLoadCallback(drawBarChart);
-				google.charts.setOnLoadCallback(drawPieChart);
-				window.onload = resize;
-				window.onresize = resize;
-			});
+		var dataModel = /*[[${chartData}]]*/ ' value';
+		var dataModelUsers = /*[[${chartDataUsers}]]*/ ' value';
+
+		$(document).ready(function () {
+			google.charts.load('current', { packages: ['corechart'] });
+			google.charts.setOnLoadCallback(drawBarChart);
+			google.charts.setOnLoadCallback(drawPieChart);
+			window.onload = resize;
+			window.onresize = resize;
+		});
 		function resize() {
 			google.charts.setOnLoadCallback(drawBarChart);
 			google.charts.setOnLoadCallback(drawPieChart);

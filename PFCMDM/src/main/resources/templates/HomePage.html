@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset=UTF-8>
-    <title>Insert title here</title>
+    <meta charset=UTF-8>
+    <title>Home</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" th:href="@{/css/home/featured.css}">
     <link rel="stylesheet" th:href="@{/css/home/large_gender.css}">
     <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 
 </head>
 
@@ -25,17 +26,18 @@
     <div class="featured-title">
         <h2 class="text-center">FEATURED</h2>
         <div class=" cards row d-flex justify-content-around">
-		<a th:each="producto : ${prods}" th:href="@{/detail/{name} (name=${producto.nombre})}">
-            <div class="card" >
-            <div class="test d-flex ">
-                 <img class="card-img-top align-self-center featured-image" th:src="${producto.product_image}" alt="Card image cap">
-            </div>
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${producto.nombre}"></h5>
-                    <p th:text="${producto.precio}"></p>
+            <a th:each="producto : ${prods}" th:href="@{/detail/{name} (name=${producto.nombre})}">
+                <div class="card">
+                    <div class="test d-flex ">
+                        <img class="card-img-top align-self-center featured-image" th:src="${producto.product_image}"
+                            alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                        <p th:text="${#numbers.formatCurrency(producto.precio)}"></p>
 
+                    </div>
                 </div>
-            </div>
 
             </a>
 
@@ -46,7 +48,7 @@
         <img class="large" src="/img/home_img/large.png" alt="">
     </div>
 
-    <div class="row mt-2" id='div3' >
+    <div class="row mt-2" id='div3'>
         <button class="split-pane col-xs-12 col-lg-6 left-side" th:onclick="window.location.href='/man'">
             <div>
                 <div class="text-content">
@@ -66,10 +68,9 @@
 
     <div class="newsLetter text-center">
         <h2>NewsLetter</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-        <button>Explore</button>
+        <p>Learn more about us and our passion for basketball by visiting our About Us page. Step inside and discover
+            the heart behind [Store Name].</p>
+        <a th:href="@{/about}"><button>Explore</button></a>
     </div>
 
     <footer th:insert="/fragment/footer"></footer>

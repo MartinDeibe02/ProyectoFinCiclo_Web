@@ -1,3 +1,4 @@
+/* FONDO DEL LOGIN*/
 .login_back{
     background-image: url("/img/login_back.png");
     height: 100vh;
@@ -9,11 +10,12 @@
     background-repeat: no-repeat;
 }
 
+/* ESTILOS DEL TITULO*/
 .log-title{
 	    font-family: "NewYork", Courier, monospace;
-	
 }
 
+/*ESTILOS DEL FORMULARIO*/
 .login_pane{
     width: 50%;
     background-color: white;
@@ -25,7 +27,7 @@
 form{
 	padding:50px;
 }
-
+/* IMAGEN DE LOS LADOS*/
 .img-form{
     background-image: url("/img/log_reg/login_form.png");
     background-size: cover;
@@ -49,7 +51,7 @@ form{
     width:100%;
     
 }
-
+/* ESTILOS DEL BOTON SUBMIT*/
 .log-button:hover{
     background-color: #252323;
     color: white;

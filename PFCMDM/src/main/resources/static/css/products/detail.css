@@ -1,3 +1,4 @@
+/* SOMBRA DEL DETALLE*/
 .prod_img{
     width: 100%;
     -webkit-filter: drop-shadow(10px 10px 10px gray);
@@ -5,18 +6,20 @@
     
   }
 
-  .xd{
+/* FONDO DE DETAIL*/
+  .back_det{
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.319), white), url("/img/back_detail.png");  
     max-height: 650px;
 }
 
+/* SOMBRA DEL DOV DE DETALLE*/
 .detail{
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
-
+/* ESTILOS BOTON CARRITO*/
 .btn-cart{
     width: 50px;
     height: 50px;
@@ -47,19 +50,13 @@ hr{
     background-color: transparent;
 }
 
+/* ESTILO DEL BOTON COMPRAR*/
 .buy:hover{
     transition: 0.3s ease;
     background-color: black;
     color: white;
 }
 
-.next{
-    text-align: end;
-}
-
-.next{
-    color: black;
-}
 
 .button-shop{
     display: flex;
@@ -79,7 +76,7 @@ hr{
 
 
 
-
+/* ESTILOS SECCION DE COMENTARIOS*/
 .comment-section {
     margin: 0 auto;
     padding: 20px;

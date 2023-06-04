@@ -1,3 +1,4 @@
+/* ESTILOS DE LAS CARDS DE FEATURED*/
 .card {
     border: none;
     box-shadow: -5px 5px 5px lightgray,
@@ -36,7 +37,3 @@
 	color:black;
 }
 
-
-  @media only screen and (max-width: 999px) {
-
-}

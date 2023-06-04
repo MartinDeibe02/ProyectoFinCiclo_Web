@@ -1,9 +1,11 @@
-.img-about{
-	width: 50% !important;
-}
-
+/* estilos body about*/
   body {
   background-color: white;
+}
+
+/* estilo imagenes about*/
+.img-fluide{
+	width: 80% !important;
 }
 
 body::before {
@@ -17,9 +19,9 @@ body::before {
   opacity: 0.2;
 }
   
-
+/* ESTILO LETRA ABOUT US*/
 .text-ab{
-	font-size: 1vw;
+	font-size: 1.2vw;
 }
 
 .div-1{

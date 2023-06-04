@@ -2,65 +2,72 @@
 <html>
 
 <head>
-	<meta charset=UTF-8>
-    <title>Insert title here</title>
+    <meta charset=UTF-8>
+    <title>cart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/products/cart.css}">
-        <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/footer/footer_style.css}">
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light prueba">
-            <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img"
-                    th:src="@{/img/home_img/logo.png}"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
-                aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="" role="button"><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-light prueba">
+        <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
+            aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="" role="button"><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="myNavbarToggler7">
-                <ul class="navbar-nav mx-auto nav-list">
-                    <li class="nav-item d-flex align-items-center justify-content-center">
-                        <a class="nav-link nav-buttons" th:href="@{/products}">Products</a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center justify-content-center">
-                        <a class="nav-link nav-buttons" th:href="@{/cart}">Cart</a>
-                    </li>
-                    <a class="d-none d-lg-block text-center" th:href="@{/}"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
-                    <li class="nav-item d-flex align-items-center justify-content-center">
-                        <a class="nav-link nav-buttons" href="#">About</a>
-                    </li>
-                    <li class="nav-item  d-flex align-items-center justify-content-center">
-					  <div class="dropdown">
-					    <button class="btn btn-secondary nav-buttons dropdown-toggle" type="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					      <span th:if="${#httpServletRequest.userPrincipal != null}"><span th:text="${#httpServletRequest.userPrincipal.name}"></span></span>
-					      <span th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</span>
-					    </button>
-					    <div class="dropdown-menu" aria-labelledby="profileDropdown">
-						  <a class="dropdown-item" th:href="@{/admin/users}" th:if="${#httpServletRequest.userPrincipal != null}" sec:authorize="hasAuthority('ADMIN')">Panel de Admin</a>
-					      <a class="dropdown-item" th:href="@{/test/logout}" th:if="${#httpServletRequest.userPrincipal != null}">Cerrar sesión</a>
-					      <a class="dropdown-item" th:href="@{/login}" th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</a>
-					      <a class="dropdown-item" th:href="@{/register}" th:unless="${#httpServletRequest.userPrincipal != null}">Registrarse</a>
-					    </div>
-					  </div>                        
-                    </li>	
-                </ul>
-            </div>
-        </nav>
+        <div class="collapse navbar-collapse" id="myNavbarToggler7">
+            <ul class="navbar-nav mx-auto nav-list">
+                <li class="nav-item d-flex align-items-center justify-content-center">
+                    <a class="nav-link nav-buttons" th:href="@{/products}">Products</a>
+                </li>
+                <li class="nav-item d-flex align-items-center justify-content-center">
+                    <a class="nav-link nav-buttons" th:href="@{/cart}">Cart</a>
+                </li>
+                <a class="d-none d-lg-block text-center" th:href="@{/}"><img class="logo-img"
+                        th:src="@{/img/home_img/logo.png}"></a>
+                <li class="nav-item d-flex align-items-center justify-content-center">
+                    <a class="nav-link nav-buttons" href="#">About</a>
+                </li>
+                <li class="nav-item  d-flex align-items-center justify-content-center">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary nav-buttons dropdown-toggle" type="button" id="profileDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span th:if="${#httpServletRequest.userPrincipal != null}"><span
+                                    th:text="${#httpServletRequest.userPrincipal.name}"></span></span>
+                            <span th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" th:href="@{/admin/users}"
+                                th:if="${#httpServletRequest.userPrincipal != null}"
+                                sec:authorize="hasAuthority('ADMIN')">Panel de Admin</a>
+                            <a class="dropdown-item" th:href="@{/test/logout}"
+                                th:if="${#httpServletRequest.userPrincipal != null}">Cerrar sesión</a>
+                            <a class="dropdown-item" th:href="@{/login}"
+                                th:unless="${#httpServletRequest.userPrincipal != null}">Entrar</a>
+                            <a class="dropdown-item" th:href="@{/register}"
+                                th:unless="${#httpServletRequest.userPrincipal != null}">Registrarse</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="h-100 h-custom">
         <div class="container py-5">
             <div class="card card-registration card-registration-2">
-            <div th:if="${cbuy}" class="alert alert-success" role="alert">
-				<p th:text="${cbuy}"></p>
-			</div>
+                <div th:if="${cbuy}" class="alert alert-success" role="alert">
+                    <p th:text="${cbuy}"></p>
+                </div>
                 <div class="card-body">
                     <div class="row ">
                         <div class="col-lg-8">
@@ -73,13 +80,15 @@
                                 <hr class="my-4">
                                 </hr>
 
-								<div class="row mb-4 d-flex justify-content-between align-items-center" th:if="${prods.isEmpty()}">
-								    <div class="col-md-12 text-center">
-								        <h4>0 products</h4>
-								    </div>
-								</div>
+                                <div class="row mb-4 d-flex justify-content-between align-items-center"
+                                    th:if="${prods.isEmpty()}">
+                                    <div class="col-md-12 text-center">
+                                        <h4>0 products</h4>
+                                    </div>
+                                </div>
 
-                                <div class="row mb-4 d-flex justify-content-between align-items-center" th:unless="${prods.isEmpty()}" th:each="prod: ${prods}">
+                                <div class="row mb-4 d-flex justify-content-between align-items-center"
+                                    th:unless="${prods.isEmpty()}" th:each="prod: ${prods}">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
                                         <img th:src="${prod.product.product_image}" class="img-cart rounded-3"
                                             alt="IMAGE"></img>
@@ -92,14 +101,15 @@
                                         <div class="btn btn-link px-2">
                                         </div>
 
-                                        <label id="form1" name="quantity" class="form-control mt-2 form-control-sm" th:text="${prod.cantidad}"></label>
+                                        <label id="form1" name="quantity" class="form-control mt-2 form-control-sm"
+                                            th:text="${prod.cantidad}"></label>
 
                                         <div class="btn btn-link px-2">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                        <h6 class="mb-0" th:text="'$ ' + ${prod.precio}"></h6>
+                                        <h6 class="mb-0" th:text="${#numbers.formatCurrency(prod.precio)}"></h6>
                                     </div>
                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                         <div class="btn btn-link text-muted">
@@ -115,28 +125,27 @@
 
                         <div class="col-lg-4 bg-grey">
                             <div class="p-5">
-                                <h3 class="fw-bold mb-5 mt-2 pt-1" >Buy</h3>
+                                <h3 class="fw-bold mb-5 mt-2 pt-1">Buy</h3>
                                 <hr class="my-4">
                                 </hr>
 
 
-                                <h5 class="text-uppercase mb-3">Envio</h5>
+                                <h5 class="text-uppercase mb-3">Shipping type</h5>
 
                                 <div class="mb-4 pb-2">
                                     <select class="select">
-                                        <option value="1">Standard</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        <option value="4">Four</option>
+                                        <option value="1">NBA 75th</option>
+                                        <option value="2">MJGOAT</option>
+                                        <option value="3">JOKICMVP</option>
+                                        <option value="4">LAVINE</option>
                                     </select>
                                 </div>
 
-                                <h5 class="text-uppercase mb-3">Codigo descuento</h5>
+                                <h5 class="text-uppercase mb-3">Discount code</h5>
 
                                 <div class="mb-5">
                                     <div class="form-outline">
-                                        <input type="text" id="form3Examplea2"
-                                            class="form-control form-control-lg" />
+                                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
                                     </div>
                                 </div>
 
@@ -145,11 +154,12 @@
 
                                 <div class="d-flex justify-content-between mb-5">
                                     <h5 class="text-uppercase">Total price</h5>
-                                    <h5 th:text="'$ ' + ${total}"></h5>
+                                    <h5 th:text="${#numbers.formatCurrency(total)}"></h5>
                                 </div>
-								<a th:href="@{/completeCart}">
-                                <button type="button"  class=" button btn btn-block btn-lg" th:unless="${prods.isEmpty()}">Buy</button>
-								</a>
+                                <a th:href="@{/completeCart}">
+                                    <button type="button" class=" button btn btn-block btn-lg"
+                                        th:unless="${prods.isEmpty()}">Buy</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +169,7 @@
     </section>
     <footer th:insert="/fragment/footer"></footer>
 
-		
+
 </body>
 
 </html>

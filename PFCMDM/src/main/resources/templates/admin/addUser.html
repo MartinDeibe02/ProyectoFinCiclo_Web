@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/02506372be.js"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{/css/sidebar.css}">
-<link rel="stylesheet" th:href="@{/css/addprod.css}">
+	<meta charset=UTF-8>
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/02506372be.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+	<link rel="stylesheet" th:href="@{/css/addprod.css}">
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 
 
 </head>
+
 <body>
 
 
@@ -27,8 +26,8 @@
 		<h2 class="text-black align-self-center mb-5">
 			<i class="fa fa-circle-plus m-2"></i>Add User
 		</h2>
-		<form class="formprod p-5 align-self-center" th:action="@{/admin/saveUser}"
-			method="post" enctype="multipart/form-data" th:object="${user}">
+		<form class="formprod p-5 align-self-center" th:action="@{/admin/saveUser}" method="post"
+			enctype="multipart/form-data" th:object="${user}">
 			<input type="hidden" th:field="*{id}" id="id">
 
 
@@ -40,48 +39,42 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-12">
-					<label>Name</label> <input type="text" class="form-control"
-						id="name" placeholder="Name" th:field="*{nombre}" required>
+					<label>Name</label> <input type="text" class="form-control" id="name" placeholder="Name"
+						th:field="*{nombre}" required>
 				</div>
 
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label>Direction</label> <input type="text" class="form-control"
-						id="direction" placeholder="Direction" th:field="*{direccion}"
-						required>
+					<label>Direction</label> <input type="text" class="form-control" id="direction"
+						placeholder="Direction" th:field="*{direccion}" required>
 				</div>
 				<div class="form-group col-md-6">
-					<label>Email</label> <input type="email" class="form-control"
-						id="email" placeholder="email" th:field="*{correo_electronico}"
-						required>
+					<label>Email</label> <input type="email" class="form-control" id="email" placeholder="email"
+						th:field="*{correo_electronico}" required>
 				</div>
 			</div>
 			<div class="form-row">
 
 				<div class="form-group col-md-6" th:if="${user.id == null}">
-					<label>Password</label> <input
-						 type="password" class="form-control"
-						id="password" placeholder="Password" th:field="*{contrasena}"
-						required /> 
+					<label>Password</label> <input type="password" class="form-control" id="password"
+						placeholder="Password" th:field="*{contrasena}" required />
 
 				</div>
-				<input th:if="${user.id != null}" type="hidden"	th:field="*{contrasena}" />
-				
+				<input th:if="${user.id != null}" type="hidden" th:field="*{contrasena}" />
+
 				<div class="form-group col-md">
-					<label>Phone</label> <input type="tel"
-						class="form-control" id="telefono" placeholder="phone"
+					<label>Phone</label> <input type="tel" class="form-control" id="telefono" placeholder="phone"
 						th:field="*{telefono}" required>
 				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-12">
-					<label>Permissions</label> <input type="checkbox" id="admin"
-						name="admin" th:checked="${admin}" />
+					<label>Permissions</label> <input type="checkbox" id="admin" name="admin" th:checked="${admin}" />
 				</div>
-				    <input type="hidden" th:field="*{permisos}" />
+				<input type="hidden" th:field="*{permisos}" />
 
 			</div>
 
@@ -93,4 +86,5 @@
 	<script th:src="@{/js/sidebar.js}"></script>
 
 </body>
+
 </html>

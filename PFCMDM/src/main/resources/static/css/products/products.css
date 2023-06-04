@@ -1,3 +1,4 @@
+/* ESTILO BOTON DETALLES*/
 .details {
   color: #212121;
   width: 100%;
@@ -12,6 +13,7 @@
 
 }
 
+/* ESTILO BOTON COMPRAR*/
 .cart {
   background-color: #212121;
   color: white;
@@ -30,13 +32,17 @@
 
 }
 
+/* ESTILOS DE LAS CARDS DE PRODUCTOS*/
 .card {
   width: 400px;
   margin-bottom: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
 .card-body {
-  width: fit-content;
+  width: 100%;
 }
 
 .btn {
@@ -49,17 +55,12 @@
   object-fit: contain;
 }
 
-.card {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
 .card:hover {
   transform: scale(1.05);
   transition: transform 0.5s ease-in-out;
 }
 
+/* ESTILOS DE LA PAGINACION*/
 .pagination .page-item {
   margin: 5px;
   list-style: none;

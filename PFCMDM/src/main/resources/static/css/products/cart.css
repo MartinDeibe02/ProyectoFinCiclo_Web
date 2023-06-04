@@ -1,3 +1,4 @@
+/* LOGO*/
     .logo-img{
     width: 50%;
   }
@@ -5,6 +6,7 @@
   .row{
   margin-right:0px !important;}
   
+  /* ESTILOS DEL NAVBAR DE CARRTITO*/
   .navbar{
   background-color: #252323}
   
@@ -23,7 +25,8 @@
   .nav-buttons {
     position: relative;
   }
-  
+ 
+ /* ESTILOS DE LOS ENLACES AL HACER HOVER*/ 
   .nav-buttons:hover {
     color: white;
   }
@@ -46,7 +49,7 @@
 
 
 
-
+/* ESTILOS DE LOS ITEMS DEL CARRITO*/
 .img-cart{
 	width: 100%;
 }
@@ -55,6 +58,7 @@
     width: 50px;
 }
 
+/* ESTILOS BOTON COMPRAR DEL CARRITO*/
 .button{
     border: none;
     background: red;
@@ -85,7 +89,7 @@
 
 
 
-
+/* ESTILOS DEL DROPDOWN DEL CARRITO*/
 .dropdown-menu .dropdown-item:hover {
   background-color: #252323;
   color: white;
@@ -109,7 +113,7 @@
 	
 }
 
-
+/* ESTILOS DROPDOWN DE PERFIL*/
 #profileDropdown {
   background-color: transparent;
   outline: none;

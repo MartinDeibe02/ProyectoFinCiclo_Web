@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Detail</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<link rel="icon" type="image/x-icon" th:href="@{/img/home_img/logo.png}">
 
 
     <link rel="stylesheet" th:href="@{/css/home/homepage.css}">
@@ -28,70 +29,72 @@
 
 
 
-    
-        <div class="container-fluid p-5 row">
+
+    <div class="container-fluid p-5 row">
         <div class="row detail">
-        
-        <div class="col-md-5 p-5 d-flex justify-content-center align-content-center xd">
-            <img class="prod_img" th:src="${product.product_image}" alt="">
-        </div>
 
-        <div class="col d-flex flex-column p-5">
-            <div class="brand-shop">
-                <h3 class="brand ml-5 mt-1" th:text="${product.marca.nombre}"></h3>
-                <a th:href="@{/cart}"><button class="btn-cart align-self-end mr-5"><i class="bi bi-cart"></i></button></a>
+            <div class="col-md-5 p-5 d-flex justify-content-center align-content-center back_det">
+                <img class="prod_img" th:src="${product.product_image}" alt="">
             </div>
-            <hr class="ml-5 text-left">
 
-            <div class="p-5 align-content-center">
-                <h2 th:text="${product.nombre}"></h2>
-                <p th:text="'$' + ${product.precio}"></p>
-                <hr class="text-left">
-                <br>
-                <p th:text="${product.descripcion}"></p>
-                <div class="button-shop">
-    			<button class="buy" th:data-product-id="${product.id}" >Buy</button>
+            <div class="col d-flex flex-column p-5">
+                <div class="brand-shop">
+                    <h3 class="brand ml-5 mt-1" th:text="${product.marca.nombre}"></h3>
+                    <a th:href="@{/cart}"><button class="btn-cart align-self-end mr-5"><i
+                                class="bi bi-cart"></i></button></a>
+                </div>
+                <hr class="ml-5 text-left">
+
+                <div class="p-5 align-content-center">
+                    <h2 th:text="${product.nombre}"></h2>
+                    <p th:text="${#numbers.formatCurrency(product.precio)}"></p>
+                    <hr class="text-left">
+                    <br>
+                    <p th:text="${product.descripcion}"></p>
+                    <div class="button-shop">
+                        <button class="buy" th:data-product-id="${product.id}">Buy</button>
                     </div>
                 </div>
             </div>
 
 
-</div>
         </div>
+    </div>
 
     <div class="comment-section">
         <h2>Comments</h2>
         <form th:action="@{/saveComent}" method="post">
-	      <input type="hidden" th:field="*{product.nombre}" th:name="nombre" id="nombre">
-        
-          <label for="comment" th:if="${#httpServletRequest.userPrincipal != null}">Coment:</label>
-          <textarea id="comentario" th:name="comentario" th:if="${#httpServletRequest.userPrincipal != null}" required></textarea>
-          <button type="submit" th:if="${#httpServletRequest.userPrincipal != null}">Send</button>
+            <input type="hidden" th:field="*{product.nombre}" th:name="nombre" id="nombre">
+
+            <label for="comment" th:if="${#httpServletRequest.userPrincipal != null}">Coment:</label>
+            <textarea id="comentario" th:name="comentario" th:if="${#httpServletRequest.userPrincipal != null}"
+                required></textarea>
+            <button type="submit" th:if="${#httpServletRequest.userPrincipal != null}">Send</button>
         </form>
         <div class="comments mt-5">
-          <div class="comment" th:each="coment: ${comentList}">
-            <h3 th:text="${coment.usuario}"></h3>
-            <p th:text="${coment.comentario}"></p>
-          </div>
-          
-          
-          
-          
+            <div class="comment" th:each="coment: ${comentList}">
+                <h3 th:text="${coment.usuario}"></h3>
+                <p th:text="${coment.comentario}"></p>
+            </div>
+
+
+
+
         </div>
-      </div>
-      
-      <div id="toastContainer"></div>
-      
-      
+    </div>
+
+    <div id="toastContainer"></div>
+
+
 
 
     <footer th:insert="/fragment/footer"></footer>
 
     <script th:src="@{/js/home.js}"></script>
     <script th:src="@{/js/cart.js}"></script>
-    
+
     <script type="text/javascript">
-    
+
     </script>
 
 </body>

@@ -8,7 +8,7 @@
 
   }
 
-
+/* ESTILOS DE SPLIT PANE GENEROS*/
   .left-side {
     background-image: url("/img/home_img/men.png");
     background-size: contain;
@@ -29,6 +29,7 @@
   
   }
   
+  /* SPLIT PANE FILTRO NEGRO*/
   .left-side::before,
   .right-side::before {
     content: "";
@@ -71,14 +72,14 @@
     font-size: 2em;
   }
 
-
+/* ESTILOS DE APARTADO ABOUT US*/
   .newsLetter{
     padding: 5%;
   }
 
 
   .newsLetter button {
-    width: 10%;
+    width: 30%;
     height: 5%;
     border: 2px solid black;
     border-radius: 20px;
@@ -99,3 +100,10 @@
     color: white;
     font-weight: 500;
 }
+
+
+  @media only screen and (max-width: 999px) {
+      .newsLetter button{
+        height: 5vw;
+        font-size: 2.5vw;
+      }}

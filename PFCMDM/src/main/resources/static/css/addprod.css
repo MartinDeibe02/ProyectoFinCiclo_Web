@@ -1,10 +1,11 @@
+/* ESTILOS DEL FORMULARIO */
 .formprod{
 	box-shadow: 0 0 10px 5px gray;
 	width: 60%;
 	background-color: white;
 }
 
-
+/* IMAGEN DE FONDO */
   body {
   background-color: white;
 }
@@ -30,7 +31,7 @@ label{
 	border-bottom: 1px solid black;
 	color: black;
 }
-
+/* ESTILO PARA READONLY*/
 .form-control[readonly]{
 	border: none;
 	background-color: transparent;
@@ -39,7 +40,7 @@ label{
 }
 
 
-
+/*COLOR PLACEHOLDERS*/
 .form-control::placeholder {
   color: d0d0d0;
 }
@@ -51,6 +52,7 @@ label{
 	color:black;
 	}
 	
+/* ESTILOS DEL SELECT*/
 select option {
   background-color: white;
   color: black;
@@ -65,6 +67,7 @@ select:hover option {
   background-color: white;
 }
 
+/* ESTILO DEL BOTON SUBMIT*/
 .submit{
 	border: 1px solid black;
     border-radius: 20px;
