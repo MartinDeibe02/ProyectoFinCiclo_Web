@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 
 import com.des.mdm.PFCMDM.model.Brand;
 import com.des.mdm.PFCMDM.model.Product;
+import com.des.mdm.PFCMDM.model.User;
 
 public interface ProductService {
 	void saveProduct(Product product);
@@ -19,4 +20,6 @@ public interface ProductService {
 	long countProds();
 	long countByMarca(Brand marca);
 	void deleteProd(int prod);
+	List<Product> findNombreContaining(String prod);
+
 }

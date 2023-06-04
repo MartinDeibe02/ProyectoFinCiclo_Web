@@ -120,11 +120,11 @@
 
 	<section class="content ml-5 mt-5 row my-3">
 		<div class="col-5 col-md-5 mx-auto d-flex">
-			<form action="" class="align-self-center">
-				<input type="text">
-				<button class="buton-search" type="submit">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
+			<form class="align-self-center" th:action="@{/admin/searchProd}" method="get">
+    			<input type="text" name="nombre" placeholder="Search by name">
+    			    <button class="buton-search" type="submit">
+			        <i class="fa-solid fa-magnifying-glass"></i>
+			    </button>
 			</form>
 		</div>
 

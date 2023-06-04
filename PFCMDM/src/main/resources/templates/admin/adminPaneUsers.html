@@ -117,11 +117,11 @@
 
 
 
-	<section class="content p-5 mt-5 row my-3">
+	<section class="content pl-5 pr-5 mt-5 row my-3">
 	
 		<div class="col-md-5 mx-auto d-flex mt-5 search-bar">
 			<form class="align-self-center" th:action="@{/admin/search}" method="get">
-    			<input type="text" name="nombre" placeholder="Escriba una búsqueda">
+    			<input type="text" name="nombre" placeholder="Search by name">
     			    <button class="buton-search" type="submit">
 			        <i class="fa-solid fa-magnifying-glass"></i>
 			    </button>
@@ -136,10 +136,16 @@
 			<div class="d-flex justify-content-around" style="width: 100%;">
 			  <a th:href="@{/admin/addUser}" class="btn btn-success">New</a>
 			  <button type="button" class="btn btn-warning crud" data-action="edit">Edit</button>
-			  <button type="button" class="btn btn-danger crud" data-action="delete">Delete</button>
+			  <button type="button" class="btn btn-info crud" data-action="delete">Switch state</button>
 			</div>
 		
 		</div>
+	</section>
+	
+	<section class="content p-5 ml-5">
+				<div th:if="${statusP}" class="alert alert-info" role="alert">
+				    <p th:text="${statusP}"></p>
+				</div>
 	</section>
 
 

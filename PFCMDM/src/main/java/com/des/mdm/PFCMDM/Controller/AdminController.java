@@ -150,7 +150,10 @@ public class AdminController {
 	public String editProd(Model model, Brand brand, @PathVariable("id") int id) {
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("brands", brandService.findAllBrands());
-		model.addAttribute("product", productService.findById(id));
+		Product prod = productService.findById(id);
+		model.addAttribute("product", prod);
+		System.out.println(prod.getFeatured());
+		model.addAttribute("feat", prod.getFeatured());
 		
 		return "/admin/addProduct";
 	}
@@ -173,17 +176,21 @@ public class AdminController {
 		model.addAttribute("generos", Genero.values());
 		model.addAttribute("brands", brandService.findAllBrands());
 		
+		
 
 		return "/admin/addProduct";
 	}
 
 	@GetMapping("/switchStatus/{id}")
-	public String deleteUser(@PathVariable("id") int id) {
+	public String deleteUser(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
 		User user = userService.findById(id);
 		if (user.getEstatus() == 1) {
 			user.setEstatus(0);
+			redirectAttributes.addFlashAttribute("statusP", "User disabled");
 		} else {
 			user.setEstatus(1);
+			redirectAttributes.addFlashAttribute("statusP", "User enabled");
+
 		}
 		userService.saveUser(user);
 
@@ -191,7 +198,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/saveProd")
-	public String saveProd(Product producto, @RequestParam("file") MultipartFile multipartFile, BindingResult result,
+	public String saveProd(Product producto, @RequestParam("file") MultipartFile multipartFile,@RequestParam(value = "feat", defaultValue = "false") boolean feat, BindingResult result,
 			RedirectAttributes redirectAttributes, Model model) throws IOException {
 		if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
@@ -204,10 +211,13 @@ public class AdminController {
 					String url = uploadToCloudinary(multipartFile);
 					producto.setProduct_image(url);
 					System.out.println(producto);
+					if(feat==true) {
+						producto.setFeatured(1);
+					}
 					productService.saveProduct(producto);
-					redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+					redirectAttributes.addFlashAttribute("success", "¡Product saved!");
 				}else {
-					redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
+					redirectAttributes.addFlashAttribute("error", "ERROR");
 				}
 			}else {
 			Product product = productService.findById(producto.getId());
@@ -215,15 +225,21 @@ public class AdminController {
 				String url = uploadToCloudinary(multipartFile);
 				producto.setProduct_image(url);
 				System.out.println(producto);
+				if(feat==true) {
+					producto.setFeatured(1);
+				}
 				productService.saveProduct(producto);
-				redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+				redirectAttributes.addFlashAttribute("success", "Product Saved!");
 				
 			}else if(product.getProduct_image() != null){
 				producto.setProduct_image(product.getProduct_image());
+				if(feat==true) {
+					producto.setFeatured(1);
+				}
 				productService.saveProduct(producto);
-				redirectAttributes.addFlashAttribute("success", "¡El formulario se envió correctamente!");
+				redirectAttributes.addFlashAttribute("success", "Product saved!");
 			}else {
-				redirectAttributes.addFlashAttribute("error", "Por favor corrija los errores del formulario");
+				redirectAttributes.addFlashAttribute("error", "ERROR");
 			}
 		}
 			}
@@ -232,8 +248,10 @@ public class AdminController {
 	}
 
 	@PostMapping("/saveBrand")
-	public String saveCat(Brand brand) {
+	public String saveCat(Brand brand, RedirectAttributes redirect) {
 		brandService.saveBrand(brand);
+		redirect.addFlashAttribute("success", "Brand Saved!");
+
 		return "redirect:/admin/addProduct";
 	}
 
@@ -246,15 +264,18 @@ public class AdminController {
 	}
 	
 	@GetMapping("/deleteProd/{id}")
-	public String deleteProd(@PathVariable("id") int id) {
+	public String deleteProd(@PathVariable("id") int id, RedirectAttributes redirect) {
 		productService.deleteProd(id);
+		redirect.addFlashAttribute("deleted", "Product deleted");
+
 		return "redirect:/admin/products";
 	}
 	
 	@GetMapping("/deleteBrand/{id}")
-	public String deleteBrand(@PathVariable("id") int id) {
+	public String deleteBrand(@PathVariable("id") int id, RedirectAttributes redirect) {
 		brandService.deleteBrand(id);
-		return "redirect:/admin/products";
+		redirect.addFlashAttribute("deleted", "Brand deleted");
+		return "redirect:/admin/brands";
 	}
 	
 	private String uploadToCloudinary(MultipartFile multipartFile) throws IOException {
@@ -313,6 +334,20 @@ public class AdminController {
 		model.addAttribute("users",usuarios);
 		model.addAttribute("pedidos", pedidoService.findAllPedidos());
 		return "/admin/adminPaneUsers";
+	}
+	
+	@GetMapping("/searchBrand")
+	public String searchPBrand(@RequestParam("nombre") String parteDelNombre, Model model) {
+        List<Brand> brands = brandService.findNombreContaining(parteDelNombre);
+		model.addAttribute("brands",brands);
+		return "/admin/adminPaneBrands";
+	}
+	
+	@GetMapping("/searchProd")
+	public String searchProd(@RequestParam("nombre") String parteDelNombre, Model model) {
+        List<Product> prods = productService.findNombreContaining(parteDelNombre);
+		model.addAttribute("products",prods);
+		return "/admin/adminPaneProducts";
 	}
 
 

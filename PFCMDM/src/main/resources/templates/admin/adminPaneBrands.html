@@ -117,16 +117,20 @@
 	</section>
 	
 	
-	
+		<section class="content p-5 ml-5">
+				<div th:if="${deleted}" class="alert alert-info" role="alert">
+				    <p th:text="${deleted}"></p>
+				</div>
+	</section>
 	
 
 	<section class="content ml-5 mt-5 row my-3">
 		<div class="col-5 col-md-5 mx-auto d-flex">
-			<form action="" class="align-self-center">
-				<input type="text">
-				<button class="buton-search" type="submit">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
+			<form class="align-self-center" th:action="@{/admin/searchBrand}" method="get">
+    			<input type="text" name="nombre" placeholder="Search by name">
+    			    <button class="buton-search" type="submit">
+			        <i class="fa-solid fa-magnifying-glass"></i>
+			    </button>
 			</form>
 		</div>
 

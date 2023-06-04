@@ -117,6 +117,11 @@ public class ProductServiceImpl implements ProductService{
 		productRepository.deleteById(prod);
 	}
 
+	@Override
+	public List<Product> findNombreContaining(String prod) {
+		return productRepository.findByNombreContaining(prod);
+	}
+
 
 
 }

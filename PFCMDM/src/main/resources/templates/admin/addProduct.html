@@ -62,12 +62,18 @@
                          </option>
                     </select>
                 </div>
-
-            </div>
+            </div >
+            <label for="feat" style="display: inline-flex; align-items: center;">
+			    Featured
+			    <input type="checkbox" id="feat" name="feat" th:checked="${feat}" style="margin-left: 5px;" />
+			</label>
                 <div class="mb-3">
                     <label for="formFile">Image</label>
                     <input type="file" class="form-control-file form-control" name="file" id="archivo" accept=".png">
                 </div>
+                
+                
+                
                 <button type="submit" class="btn btn-primary submit">Add Product</button>
             
         </form>
