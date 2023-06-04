@@ -72,6 +72,9 @@
             <button type="submit" th:if="${#httpServletRequest.userPrincipal != null}">Send</button>
         </form>
         <div class="comments mt-5">
+		        <div class="comment" th:if="${#lists.isEmpty(comentList)}">
+				    <p>No comments</p>
+				</div>
             <div class="comment" th:each="coment: ${comentList}">
                 <h3 th:text="${coment.usuario}"></h3>
                 <p th:text="${coment.comentario}"></p>
