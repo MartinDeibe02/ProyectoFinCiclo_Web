@@ -18,7 +18,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light prueba">
-        <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}"></a>
+        <a class="navbar-brand d-lg-none mr-5" href="#"><img class="logo-img" th:src="@{/img/home_img/logo.png}" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
             aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
             <span class="" role="button"><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
@@ -91,7 +91,7 @@
                                     th:unless="${prods.isEmpty()}" th:each="prod: ${prods}">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
                                         <img th:src="${prod.product.product_image}" class="img-cart rounded-3"
-                                            alt="IMAGE"></img>
+                                            alt="Product image"></img>
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
                                         <h6 class="text-muted" th:text="${prod.product.nombre}"> </h6>
