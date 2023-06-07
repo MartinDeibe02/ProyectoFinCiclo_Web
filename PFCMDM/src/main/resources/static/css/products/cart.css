@@ -61,18 +61,20 @@
 /* ESTILOS BOTON COMPRAR DEL CARRITO*/
 .button{
     border: none;
-    background: red;
+    background: white;
     padding: 12px 30px;
     border-radius: 30px;
-    color: white;
+    color: black;
     font-size: 15px;
     transition: .4s;
     margin-right: 20px;
+    border: 1px solid black;
     margin-bottom: 10px;
 }
 
 .button:hover{
     color: white;
+    background: #252323;
 }
 
 .h-custom{
