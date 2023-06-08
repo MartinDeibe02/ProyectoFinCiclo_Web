@@ -8,8 +8,9 @@ La tienda, llamada Dunk Shop, se distinguirá por su selección exclusiva de art
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](ruta/a/captura.png)
-![Captura de Pantalla 2](ruta/b/captura.png)
+![adminprod.png](Documentacion%2FCapturas%2Fadminprod.png)
+
+![carrito.png](Documentacion%2FCapturas%2Fcarrito.png)
 
 ## Características
 
@@ -20,7 +21,7 @@ La tienda, llamada Dunk Shop, se distinguirá por su selección exclusiva de art
 - Registro de usuarios: Los usuarios pueden registrarse, crear una cuenta y guardar su información personal para futuras compras.
 - Comentarios y valoraciones: Los usuarios pueden dejar comentarios y valoraciones sobre los productos, lo que ayuda a otros compradores en su decisión de compra.
 - Administración de roles y privilegios de los usuarios, como roles de administrador o usuario.
-- Creación, edición y eliminación de marcas de productos.
+- Creación, edición y eliminación de marcas y productos.
 
 ## Tecnologías Utilizadas
 
